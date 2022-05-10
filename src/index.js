@@ -176,3 +176,5 @@ function onPause() {
 function onStop() {
   document.querySelector("#text").textContent = "-";
 }
+
+//メモ
