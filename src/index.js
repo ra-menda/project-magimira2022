@@ -13,9 +13,9 @@ const textContainer = document.querySelector("#text");
 
 // 単語が発声されていたら #text に表示する
 // Show words being vocalized in #text
-const animateWord = function (now, unit) {
+function animatePhrase(now, unit) {
   if (unit.contains(now)) {
-    document.querySelector("#text").textContent = unit.text;
+    phraseEl.textContent = unit.text;
   }
 };
 
@@ -48,6 +48,8 @@ const positionEl = document.querySelector("#position strong");
 
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
+const phraseEl = document.querySelector("#container p");
+//const beatbarEl = document.querySelector("#beatbar");
 
 /**
  * TextAlive App が初期化されたときに呼ばれる
@@ -122,11 +124,13 @@ function onVideoReady(v) {
 
   // 定期的に呼ばれる各単語の "animate" 関数をセットする
   // Set "animate" function
-  let w = player.video.firstWord;
-  while (w) {
-    w.animate = animateWord;
-    w = w.next;
+  let p = player.video.firstPhrase;
+  jumpBtn.disabled = !p;
+  while (p && p.next) {
+    p.animate = animatePhrase;
+      p = p.next;
   }
+  
 }
 
 /**
@@ -145,7 +149,7 @@ function onTimerReady(t) {
 
   // 歌詞がなければ歌詞頭出しボタンを無効にする
   // Disable jump button if no lyrics is available
-  jumpBtn.disabled = !player.video.firstChar;
+  jumpBtn.disabled = !player.video.firstPhrase;
 }
 
 /**
@@ -171,10 +175,10 @@ function onPlay() {
 // 再生が一時停止・停止したら歌詞表示をリセット
 // Reset lyrics text field when music playback is paused or stopped
 function onPause() {
-  document.querySelector("#text").textContent = "-";
+  phraseEl.textContent = "-";
 }
 function onStop() {
-  document.querySelector("#text").textContent = "-";
+  phraseEl.textContent = "-";
 }
 
 //メモ
