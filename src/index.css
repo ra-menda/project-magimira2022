@@ -79,3 +79,18 @@
 #control > button:last-child {
   margin-right: 0;
 }
+
+  /* マウスストーカー用CSS*/
+#stkr{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 25px;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  transition: 0.2s;
+  transition-timing-function: ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
