@@ -15,4 +15,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PROJECTRA_MEN }}'
           projectId: projectra-men
+          expires: 30d
           channelId: '${{ github.event.number }}'
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels
