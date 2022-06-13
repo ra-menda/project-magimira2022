@@ -37,6 +37,13 @@
   font-size: 6em;
 }
 
+#image{
+  width: 35%;
+  height: 35%;
+  right: 50%;
+  bottom: 50%;
+}
+
 #media {
   position: absolute;
   right: 10px;
