@@ -17,6 +17,9 @@
     <div id="media"></div>
     <div id="header">
       <div id="meta">
+        <strong>URL:</strong><input id="song_url" name="url" placeholder="https://www.youtube.com/watch?v=XSLhsjepelI"
+                                    type="text">
+        <button id="reload_button">変更</button>
         <div id="artist"><strong>artist:</strong> <span>-</span></div>
         <div id="song"><strong>song:</strong> <span>-</span></div>
       </div>
@@ -32,10 +35,10 @@
         <span id="position"><strong>-</strong> [ms]</span>
       </p>
       <div id="control" style="display: none">
-        <button class="stkr-target" disabled>再生</button>
-        <button class="stkr-target" id="jump" disabled>歌詞頭出し</button>
-        <button class="stkr-target" id="pause" disabled>一時停止</button>
-        <button class="stkr-target" id="rewind" disabled>巻き戻し</button>
+        <button class="play" disabled>再生</button>
+        <button id="jump" disabled>歌詞頭出し</button>
+        <button id="pause" disabled>一時停止</button>
+        <button id="rewind" disabled>巻き戻し</button>
       </div>
     </div>
     <script type="module" src="./index.js"></script>
