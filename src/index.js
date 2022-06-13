@@ -8,7 +8,8 @@
  * https://developer.textalive.jp/app/
  */
 
-import { Player } from "textalive-app-api";
+import {Player} from "textalive-app-api";
+
 const textContainer = document.querySelector("#text");
 
 // 単語が発声されていたら #text に表示する
@@ -38,6 +39,7 @@ player.addListener({
   onPlay,
   onPause,
   onStop,
+  onAppMediaChange,
 });
 
 const playBtns = document.querySelectorAll(".play");
@@ -45,7 +47,7 @@ const jumpBtn = document.querySelector("#jump");
 const pauseBtn = document.querySelector("#pause");
 const rewindBtn = document.querySelector("#rewind");
 const positionEl = document.querySelector("#position strong");
-
+const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#container p");
@@ -79,22 +81,28 @@ function onAppReady(app) {
 
     // 一時停止ボタン / Pause music playback
     pauseBtn.addEventListener(
-      "click",
-      () => player.video && player.requestPause()
+        "click",
+        () => player.video && player.requestPause()
     );
 
     // 巻き戻しボタン / Rewind music playback
     rewindBtn.addEventListener(
-      "click",
-      () => player.video && player.requestMediaSeek(0)
+        "click",
+        () => player.video && player.requestMediaSeek(0)
+    );
+
+    //楽曲再指定ボタン
+    reloadBtn.addEventListener(
+        "click",
+        () => player.createFromSongUrl(document.querySelector("#song_url").value)
     );
 
     document
-      .querySelector("#header a")
-      .setAttribute(
-        "href",
-        "https://developer.textalive.jp/app/run/?ta_app_url=https%3A%2F%2Ftextalivejp.github.io%2Ftextalive-app-basic%2F&ta_song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DygY2qObZv24"
-      );
+        .querySelector("#header a")
+        .setAttribute(
+            "href",
+            "https://developer.textalive.jp/app/run/?ta_app_url=https%3A%2F%2Ftextalivejp.github.io%2Ftextalive-app-basic%2F&ta_song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DygY2qObZv24"
+        );
   } else {
     document
       .querySelector("#header a")
@@ -177,6 +185,12 @@ function onPlay() {
 function onPause() {
   phraseEl.textContent = "-";
 }
+
 function onStop() {
+  phraseEl.textContent = "-";
+}
+
+//楽曲変更する場合に呼ばれるメソッド
+function onAppMediaChange() {
   phraseEl.textContent = "-";
 }
