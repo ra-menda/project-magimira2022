@@ -14,6 +14,9 @@
 #overlay .play {
   padding: 7em;
 }
+.play{
+  background-color: aquamarine;
+}
 
 #container {
   width: 100%;
