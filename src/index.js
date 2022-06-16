@@ -148,7 +148,7 @@ function onTimeUpdate(position) {
   document.querySelector("#beat_duration").textContent = duration.toString();
   const bpm = 1000 / duration * 60
   document.querySelector("#beat_1").textContent = bpm.toString();
-  document.getElementById('image').style.animationduration = duration;
+  document.getElementById('image').style.animationDuration = (duration * 2).toString() + "ms";
 }
 
 /**
