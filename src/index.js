@@ -103,7 +103,6 @@ function onAppReady(app) {
         changeColor
     )
 
-
     document
         .querySelector("#header a")
         .setAttribute(
