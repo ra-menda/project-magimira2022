@@ -40,6 +40,7 @@ player.addListener({
   onPause,
   onStop,
   onAppMediaChange,
+  onTimeUpdate
 });
 
 const playBtns = document.querySelectorAll(".play");
@@ -51,6 +52,7 @@ const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#container p");
+const bar = document.querySelector("#bar");
 //const beatbarEl = document.querySelector("#beatbar");
 
 /**
@@ -138,7 +140,15 @@ function onVideoReady(v) {
     p.animate = animatePhrase;
       p = p.next;
   }
-  
+}
+
+function onTimeUpdate(position) {
+  document.querySelector("#beat_index").textContent = player.findBeat(position).index;
+  const duration = player.findBeat(position).duration;
+  document.querySelector("#beat_duration").textContent = duration.toString();
+  const bpm = 1000 / duration * 60
+  document.querySelector("#beat_1").textContent = bpm.toString();
+  document.getElementById('image').style.animationDuration = (duration * 2).toString() + "ms";
 }
 
 /**
