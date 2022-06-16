@@ -51,6 +51,7 @@ const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#container p");
+const changecolor = document.querySelector('#change_color')
 //const beatbarEl = document.querySelector("#beatbar");
 
 /**
@@ -96,6 +97,12 @@ function onAppReady(app) {
         "click",
         () => player.createFromSongUrl(document.querySelector("#song_url").value)
     );
+
+    changecolor.addEventListener(
+        "click",
+        changeColor
+    )
+
 
     document
         .querySelector("#header a")
@@ -193,4 +200,32 @@ function onStop() {
 //楽曲変更する場合に呼ばれるメソッド
 function onAppMediaChange() {
   phraseEl.textContent = "-";
+}
+
+//色管理利用
+var color = 1;
+
+//ゴリ押し色変更
+function changeColor() {
+  switch (color) {
+    case 1:
+      document.getElementById('stkr').style.background = "#0050FF7F";
+      color++;
+      break;
+
+    case 2:
+      document.getElementById('stkr').style.background = "#FF00007F";
+      color++;
+      break;
+
+    case 3:
+      document.getElementById('stkr').style.background = "#F7FF007E";
+      color++;
+      break;
+
+    case 4:
+      document.getElementById('stkr').style.background = "#00F6FF7C";
+      color = 1;
+      break;
+  }
 }
