@@ -140,28 +140,15 @@ function onVideoReady(v) {
     p.animate = animatePhrase;
       p = p.next;
   }
-  
 }
 
-function onTimeUpdate(position){
+function onTimeUpdate(position) {
   document.querySelector("#beat_index").textContent = player.findBeat(position).index;
-  document.querySelector("#beat_duration").textContent = player.findBeat(position).duration;
-  document.querySelector("#beat_1").textContent = player.findBeat(position);
-}
-
-
-現在のビート情報を取得
-let beat = player.findBeat(position);
-if (b !== beat) {
-  if (beat) {
-    requestAnimationFrame(() => {
-      bar.className = "active";
-      requestAnimationFrame(() => {
-        bar.className = "active beat";
-      });
-    });
-  }
-  b = beat;
+  const duration = player.findBeat(position).duration;
+  document.querySelector("#beat_duration").textContent = duration.toString();
+  const bpm = 1000 / duration * 60
+  document.querySelector("#beat_1").textContent = bpm.toString();
+  document.getElementById('image').style.animationduration = duration;
 }
 
 /**
@@ -217,6 +204,3 @@ function onStop() {
 function onAppMediaChange() {
   phraseEl.textContent = "-";
 }
-
-
-
