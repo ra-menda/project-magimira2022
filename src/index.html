@@ -3,6 +3,7 @@
     <title>TextAlive App API | basic example</title>
     <link rel="stylesheet" href="index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./index.js" type="module"></script>
   </head>
   <body>
   <div id="stkr"></div>
@@ -21,6 +22,7 @@
         <strong>URL:</strong><input id="song_url" name="url" placeholder="https://www.youtube.com/watch?v=XSLhsjepelI"
                                     type="text">
         <button id="reload_button">変更</button>
+        <button id="change_color">色変更</button>
         <div id="artist"><strong>artist:</strong> <span>-</span></div>
         <div id="song"><strong>song:</strong> <span>-</span></div>
       </div>
@@ -47,7 +49,6 @@
         <button id="rewind" disabled>巻き戻し</button>
       </div>
     </div>
-    <script type="module" src="./index.js"></script>
 
     <!-- JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
