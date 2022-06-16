@@ -37,6 +37,28 @@
   font-size: 6em;
 }
 
+#image{
+  width: 30%;
+  height: 30%;
+  /* right: 60%; */
+  /* bottom: 50%; */
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-name: anim_s;
+  animation-duration: 2s;
+}
+  @keyframes anim_s {
+    0% {
+      transform: translate(0px, 0);
+    }
+    100% {
+      transform: translate(60px, 0);
+    }
+  }
+  
+
+
 #media {
   position: absolute;
   right: 10px;
