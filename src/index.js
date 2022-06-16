@@ -40,6 +40,7 @@ player.addListener({
   onPause,
   onStop,
   onAppMediaChange,
+  onTimeUpdate
 });
 
 const playBtns = document.querySelectorAll(".play");
@@ -51,6 +52,7 @@ const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#container p");
+const bar = document.querySelector("#bar");
 //const beatbarEl = document.querySelector("#beatbar");
 
 /**
@@ -141,6 +143,27 @@ function onVideoReady(v) {
   
 }
 
+function onTimeUpdate(position){
+  document.querySelector("#beat_index").textContent = player.findBeat(position).index;
+  document.querySelector("#beat_duration").textContent = player.findBeat(position).duration;
+  document.querySelector("#beat_1").textContent = player.findBeat(position);
+}
+
+
+現在のビート情報を取得
+let beat = player.findBeat(position);
+if (b !== beat) {
+  if (beat) {
+    requestAnimationFrame(() => {
+      bar.className = "active";
+      requestAnimationFrame(() => {
+        bar.className = "active beat";
+      });
+    });
+  }
+  b = beat;
+}
+
 /**
  * 音源の再生準備が完了した時に呼ばれる
  *
@@ -194,3 +217,6 @@ function onStop() {
 function onAppMediaChange() {
   phraseEl.textContent = "-";
 }
+
+
+
