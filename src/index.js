@@ -40,6 +40,7 @@ player.addListener({
   onPause,
   onStop,
   onAppMediaChange,
+  onTimeUpdate
 });
 
 const playBtns = document.querySelectorAll(".play");
@@ -51,6 +52,8 @@ const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#container p");
+const changecolor = document.querySelector('#change_color')
+const bar = document.querySelector("#bar");
 //const beatbarEl = document.querySelector("#beatbar");
 
 /**
@@ -97,6 +100,11 @@ function onAppReady(app) {
         () => player.createFromSongUrl(document.querySelector("#song_url").value)
     );
 
+    changecolor.addEventListener(
+        "click",
+        changeColor
+    )
+
     document
         .querySelector("#header a")
         .setAttribute(
@@ -138,7 +146,15 @@ function onVideoReady(v) {
     p.animate = animatePhrase;
       p = p.next;
   }
-  
+}
+
+function onTimeUpdate(position) {
+  document.querySelector("#beat_index").textContent = player.findBeat(position).index;
+  const duration = player.findBeat(position).duration;
+  document.querySelector("#beat_duration").textContent = duration.toString();
+  const bpm = 1000 / duration * 60
+  document.querySelector("#beat_1").textContent = bpm.toString();
+  document.getElementById('image').style.animationDuration = (duration * 2).toString() + "ms";
 }
 
 /**
@@ -193,4 +209,32 @@ function onStop() {
 //楽曲変更する場合に呼ばれるメソッド
 function onAppMediaChange() {
   phraseEl.textContent = "-";
+}
+
+//色管理利用
+var color = 1;
+
+//ゴリ押し色変更
+function changeColor() {
+  switch (color) {
+    case 1:
+      document.getElementById('stkr').style.background = "#0050FF7F";
+      color++;
+      break;
+
+    case 2:
+      document.getElementById('stkr').style.background = "#FF00007F";
+      color++;
+      break;
+
+    case 3:
+      document.getElementById('stkr').style.background = "#F7FF007E";
+      color++;
+      break;
+
+    case 4:
+      document.getElementById('stkr').style.background = "#00F6FF7C";
+      color = 1;
+      break;
+  }
 }

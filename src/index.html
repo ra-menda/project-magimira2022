@@ -3,6 +3,7 @@
     <title>TextAlive App API | basic example</title>
     <link rel="stylesheet" href="index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./index.js" type="module"></script>
   </head>
   <body>
   <div id="stkr"></div>
@@ -13,6 +14,7 @@
           <span id="text"></span>
         </p>
       </div>
+      <img src = "../img/image.png" id= "image" class="keyframe3 animation">  
     </div>
     <div id="media"></div>
     <div id="header">
@@ -20,6 +22,7 @@
         <strong>URL:</strong><input id="song_url" name="url" placeholder="https://www.youtube.com/watch?v=XSLhsjepelI"
                                     type="text">
         <button id="reload_button">変更</button>
+        <button id="change_color">色変更</button>
         <div id="artist"><strong>artist:</strong> <span>-</span></div>
         <div id="song"><strong>song:</strong> <span>-</span></div>
       </div>
@@ -29,6 +32,11 @@
           <a>TextAlive ホストの有無</a>により再生コントロールの表示状態が切り替わります
         </li>
       </ul>
+      ビートの情報<br>
+      index：<span id="beat_index"></span><br>
+      duration[ms]：<span id="beat_duration"></span><br>
+      beat：<span id="beat_1"></span><br>
+    <br>
     </div>
     <div id="footer">
       <p>
@@ -41,7 +49,6 @@
         <button id="rewind" disabled>巻き戻し</button>
       </div>
     </div>
-    <script type="module" src="./index.js"></script>
 
     <!-- JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
