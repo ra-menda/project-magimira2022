@@ -40,8 +40,8 @@
 #image{
   width: 30%;
   height: auto;
-  right: 50%; 
-  bottom: 50%; 
+  right: 35%; 
+  bottom: 20%; 
   position: absolute;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
