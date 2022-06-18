@@ -39,9 +39,10 @@
 
 #image{
   width: 30%;
-  height: 30%;
-  /* right: 60%; */
-  /* bottom: 50%; */
+  height: auto;
+  right: 50%; 
+  bottom: 50%; 
+  position: absolute;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
