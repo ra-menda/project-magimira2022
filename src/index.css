@@ -26,7 +26,14 @@
   justify-content: center;
 
 }
+/*ステージ（未調整）*/
 #stage {
+  position: absolute;
+  width: 10px;
+  height: 5%;
+  left: 20%;
+  margin-right: 20%;
+  bottom: 18%;
   background-color: dimgrey;
 }
 
@@ -38,14 +45,28 @@
   padding: 0 0.5em;
   right: 0.5em;
   font-weight: bold;
-  /*text-align: center;*/
+  text-align: center;
 }
 /*歌詞*/
 #lyrics {
+  height: 65%;
   font-size: 3em;
   writing-mode: vertical-rl;
-
+  animation: infinite;
+  animation-name: sing;
+  animation-duration: 7s;
 }
+
+  @keyframes sing{
+    0%{
+      transrateY: 50%;
+      scale: 10%;
+    }
+    100%{
+      transrateY: 150%;
+      scale: 150%;
+    }
+  }
 
 #image{
   width: 30%;
