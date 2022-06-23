@@ -11,19 +11,19 @@
 import {Player} from "textalive-app-api";
 
 // 歌詞を交互にする
-var flag = 0
-var olophrase = ""
+var isRight = true;
+var olophrase = "";
 
 // 単語が発声されていたら #text に表示する
 function animatePhrase(now, unit) {
   if (unit.contains(now)) {
     if (unit.text != olophrase) {
-      if (flag == 0) {
+      if (isRight) {
         phraseEl.textContent = unit.text;
-        flag = 1;
+        isRight = !isRight;
       } else {
         phraseEl2.textContent = unit.text;
-        flag = 0;
+        isRight = !isRight;
       }
       olophrase = unit.text;
     }
@@ -154,6 +154,7 @@ function onVideoReady(v) {
   phraseEl.textContent = "-";
   phraseEl2.textContent = "-";
   olophrase = ""
+  isRight = true;
   // document.querySelector("#overlay").style.visibility = "visible";
 }
 
@@ -204,12 +205,14 @@ function onPause() {
   phraseEl.textContent = "-";
   phraseEl2.textContent = "-";
   olophrase = ""
+  isRight = !isRight;
 }
 
 function onStop() {
   phraseEl.textContent = "-";
   phraseEl2.textContent = "-";
   olophrase = ""
+  isRight = !isRight;
 }
 
 // 楽曲変更する場合に呼ばれるメソッド
