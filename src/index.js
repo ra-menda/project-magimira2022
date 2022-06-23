@@ -10,13 +10,23 @@
 
 import {Player} from "textalive-app-api";
 
-const textContainer = document.querySelector("#text");
-
+// 歌詞を交互にする
+var flag = 0
+var olophrase = ""
 // 単語が発声されていたら #text に表示する
 // Show words being vocalized in #text
 function animatePhrase(now, unit) {
   if (unit.contains(now)) {
-    phraseEl.textContent = unit.text;
+    if (unit.text != olophrase) {
+      if (flag == 0) {
+        phraseEl.textContent = unit.text;
+        flag = 1;
+      } else {
+        phraseEl2.textContent = unit.text;
+        flag = 0;
+      }
+      olophrase = unit.text;
+    }
   }
 };
 
@@ -39,8 +49,8 @@ player.addListener({
   onPlay,
   onPause,
   onStop,
-  onAppMediaChange,
-  onTimeUpdate
+  onTimeUpdate,
+  onAppMediaChange
 });
 
 const playBtns = document.querySelectorAll(".play");
@@ -52,9 +62,8 @@ const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#container p");
+const phraseEl2 = document.querySelector("#lyrics2");
 const changecolor = document.querySelector('#change_color')
-const bar = document.querySelector("#bar");
-//const beatbarEl = document.querySelector("#beatbar");
 
 /**
  * TextAlive App が初期化されたときに呼ばれる
@@ -97,7 +106,7 @@ function onAppReady(app) {
     //楽曲再指定ボタン
     reloadBtn.addEventListener(
         "click",
-        () => player.createFromSongUrl(document.querySelector("#song_url").value)
+        changeMedia
     );
 
     changecolor.addEventListener(
@@ -144,8 +153,11 @@ function onVideoReady(v) {
   jumpBtn.disabled = !p;
   while (p && p.next) {
     p.animate = animatePhrase;
-      p = p.next;
+    p = p.next;
   }
+  // 曲変更後に歌詞文字を"-"にするのと、大きい再生ボタンを再表示する。
+  phraseEl.textContent = "-";
+  // document.querySelector("#overlay").style.visibility = "visible";
 }
 
 function onTimeUpdate(position) {
@@ -174,6 +186,7 @@ function onTimerReady(t) {
   // 歌詞がなければ歌詞頭出しボタンを無効にする
   // Disable jump button if no lyrics is available
   jumpBtn.disabled = !player.video.firstPhrase;
+  player.video && player.requestPlay();
 }
 
 /**
@@ -183,21 +196,16 @@ function onTimerReady(t) {
  */
 function onThrottledTimeUpdate(position) {
   // 再生位置を表示する
-  // Update current position
   positionEl.textContent = String(Math.floor(position));
-
-  // さらに精確な情報が必要な場合は `player.timer.position` でいつでも取得できます
-  // More precise timing information can be retrieved by `player.timer.position` at any time
 }
 
 // 再生が始まったら #overlay を非表示に
 // Hide #overlay when music playback started
 function onPlay() {
-  document.querySelector("#overlay").style.display = "none";
+  document.querySelector("#overlay").style.visibility = "hidden";
 }
 
 // 再生が一時停止・停止したら歌詞表示をリセット
-// Reset lyrics text field when music playback is paused or stopped
 function onPause() {
   phraseEl.textContent = "-";
 }
@@ -206,9 +214,17 @@ function onStop() {
   phraseEl.textContent = "-";
 }
 
+
 //楽曲変更する場合に呼ばれるメソッド
-function onAppMediaChange() {
-  phraseEl.textContent = "-";
+function changeMedia() {
+  while (player.video && player.requestMediaSeek(0)) {
+    player.createFromSongUrl(document.querySelector("#song_url").value);
+    break;
+  }
+}
+
+function onAppMediaChange(songURL) {
+  alert(songURL);
 }
 
 //色管理利用
