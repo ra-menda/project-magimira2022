@@ -13,8 +13,8 @@ import {Player} from "textalive-app-api";
 // 歌詞を交互にする
 var flag = 0
 var olophrase = ""
+
 // 単語が発声されていたら #text に表示する
-// Show words being vocalized in #text
 function animatePhrase(now, unit) {
   if (unit.contains(now)) {
     if (unit.text != olophrase) {
@@ -31,7 +31,6 @@ function animatePhrase(now, unit) {
 };
 
 // TextAlive Player を作る
-// Instantiate a TextAlive Player instance
 const player = new Player({
   app: {
     token: "1HJzpsZ11CfoUPrr",
@@ -40,7 +39,6 @@ const player = new Player({
 });
 
 // TextAlive Player のイベントリスナを登録する
-// Register event listeners
 player.addListener({
   onAppReady,
   onVideoReady,
@@ -72,18 +70,17 @@ const changecolor = document.querySelector('#change_color')
  */
 function onAppReady(app) {
   // TextAlive ホストと接続されていなければ再生コントロールを表示する
-  // Show control if this app is launched standalone (not connected to a TextAlive host)
   if (!app.managed) {
     document.querySelector("#control").style.display = "block";
 
-    // 再生ボタン / Start music playback
+    // 再生ボタン
     playBtns.forEach((playBtn) =>
       playBtn.addEventListener("click", () => {
         player.video && player.requestPlay();
       })
     );
 
-    // 歌詞頭出しボタン / Seek to the first character in lyrics text
+    // 歌詞頭出しボタン
     jumpBtn.addEventListener(
       "click",
       () =>
@@ -91,24 +88,25 @@ function onAppReady(app) {
         player.requestMediaSeek(player.video.firstChar.startTime)
     );
 
-    // 一時停止ボタン / Pause music playback
+    // 一時停止ボタン
     pauseBtn.addEventListener(
         "click",
         () => player.video && player.requestPause()
     );
 
-    // 巻き戻しボタン / Rewind music playback
+    // 巻き戻しボタン
     rewindBtn.addEventListener(
         "click",
         () => player.video && player.requestMediaSeek(0)
     );
 
-    //楽曲再指定ボタン
+    // 楽曲再指定ボタン
     reloadBtn.addEventListener(
         "click",
         changeMedia
     );
 
+    // 色変更ボタン
     changecolor.addEventListener(
         "click",
         changeColor
@@ -130,7 +128,6 @@ function onAppReady(app) {
   }
 
   // 楽曲URLが指定されていなければ マジカルミライ 2020テーマ曲を読み込む
-  // Load a song when a song URL is not specified
   if (!app.songUrl) {
     player.createFromSongUrl("https://www.youtube.com/watch?v=ZOTJgXBkJpc");
   }
@@ -143,12 +140,10 @@ function onAppReady(app) {
  */
 function onVideoReady(v) {
   // メタデータを表示する
-  // Show meta data
   artistSpan.textContent = player.data.song.artist.name;
   songSpan.textContent = player.data.song.name;
 
   // 定期的に呼ばれる各単語の "animate" 関数をセットする
-  // Set "animate" function
   let p = player.video.firstPhrase;
   jumpBtn.disabled = !p;
   while (p && p.next) {
@@ -176,7 +171,6 @@ function onTimeUpdate(position) {
  */
 function onTimerReady(t) {
   // ボタンを有効化する
-  // Enable buttons
   if (!player.app.managed) {
     document
       .querySelectorAll("button")
@@ -184,7 +178,6 @@ function onTimerReady(t) {
   }
 
   // 歌詞がなければ歌詞頭出しボタンを無効にする
-  // Disable jump button if no lyrics is available
   jumpBtn.disabled = !player.video.firstPhrase;
   player.video && player.requestPlay();
 }
@@ -195,12 +188,11 @@ function onTimerReady(t) {
  * @param {number} position - https://developer.textalive.jp/packages/textalive-app-api/interfaces/playereventlistener.html#onthrottledtimeupdate
  */
 function onThrottledTimeUpdate(position) {
-  // 再生位置を表示する
+// 再生位置を表示する
   positionEl.textContent = String(Math.floor(position));
 }
 
 // 再生が始まったら #overlay を非表示に
-// Hide #overlay when music playback started
 function onPlay() {
   document.querySelector("#overlay").style.visibility = "hidden";
 }
@@ -215,7 +207,7 @@ function onStop() {
 }
 
 
-//楽曲変更する場合に呼ばれるメソッド
+// 楽曲変更する場合に呼ばれるメソッド
 function changeMedia() {
   while (player.video && player.requestMediaSeek(0)) {
     player.createFromSongUrl(document.querySelector("#song_url").value);
@@ -227,10 +219,10 @@ function onAppMediaChange(songURL) {
   alert(songURL);
 }
 
-//色管理利用
+// 色管理利用
 var color = 1;
 
-//ゴリ押し色変更
+// ゴリ押し色変更
 function changeColor() {
   switch (color) {
     case 1:
