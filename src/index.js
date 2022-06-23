@@ -152,6 +152,8 @@ function onVideoReady(v) {
   }
   // 曲変更後に歌詞文字を"-"にするのと、大きい再生ボタンを再表示する。
   phraseEl.textContent = "-";
+  phraseEl2.textContent = "-";
+  olophrase = ""
   // document.querySelector("#overlay").style.visibility = "visible";
 }
 
@@ -200,12 +202,15 @@ function onPlay() {
 // 再生が一時停止・停止したら歌詞表示をリセット
 function onPause() {
   phraseEl.textContent = "-";
+  phraseEl2.textContent = "-";
+  olophrase = ""
 }
 
 function onStop() {
   phraseEl.textContent = "-";
+  phraseEl2.textContent = "-";
+  olophrase = ""
 }
-
 
 // 楽曲変更する場合に呼ばれるメソッド
 function changeMedia() {
