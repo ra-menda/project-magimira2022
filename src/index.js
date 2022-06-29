@@ -149,7 +149,7 @@ function onVideoReady(v) {
   }
 }
 
- const miku = ["../img/image.png","../img/image2.png"];
+ //const miku = ["../img/image.png","../img/image2.png"];
 
 function onTimeUpdate(position) {
   document.querySelector("#beat_index").textContent = player.findBeat(position).index;
@@ -162,14 +162,18 @@ function onTimeUpdate(position) {
   mikuTimer(duration * 2);
 }
 
-var judge = -1;
+let judge = true;
 
 function mikuTimer(beattime){
-  judge++;
-  if(judge == miku.length ){
-    judge = 0;
+  if(judge){
+    document.getElementById("image").style.transform = "scale(-1,1)";
+    judge = false;
   }
-  image.src  = miku[judge];
+  else{
+    document.getElementById("image").style.transform = "scale(1,1)";
+    judge = true;
+  }
+  // image.src  = miku[judge];
   setTimeout("mikuTimer()",beattime);
 }
 
