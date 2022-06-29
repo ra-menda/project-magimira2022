@@ -10,7 +10,6 @@
   justify-content: center;
   z-index: 100;
 }
-
 #overlay .play {
   padding: 7em;
 }
@@ -22,16 +21,78 @@
   align-items: center;
   justify-content: center;
 }
-
-#container > div {
-  width: 100%;
-}
-
 #container p {
   padding: 0 0.5em;
   font-weight: bold;
   text-align: center;
 }
+/*歌詞*/
+#lyrics {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  font-size: 3.2em;
+  writing-mode: vertical-rl;
+  animation: infinite;
+  animation-name: sing;
+  animation-duration: 7s;
+}
+  @keyframes sing{
+    0%{
+      transrateX: 0%;
+      transrateY: 0%;
+      scale: 100%;
+    }
+    100%{
+      transrateX: -10px;
+      transrateY: -5px;
+      scale: 200%;
+    }
+  }
+  #lyrics2{
+    position: absolute;
+    top: 15%;
+    right: 50%;
+    font-size: 3.2em;
+    writing-mode: vertical-rl;
+    animation: infinite;
+    animation-name: sing2;
+    animation-duration: 7s;
+  }
+  @keyframes sing2{
+    0%{
+      /*transrateX: 0%;
+      transrateY: 0%;*/
+      top: 20%;
+      scale: 100%;
+    }
+    100%{
+      top:5%;
+      transrateY: -20%;
+      scale: 200%;
+    }
+  }
+
+#image{
+  width: 30%;
+  height: auto;
+  right: 35%; 
+  bottom: 20%; 
+  position: absolute;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-name: anim_s;
+  animation-duration: 2s;
+}
+  @keyframes anim_s {
+    0% {
+      transform: translate(0px, 0);
+    }
+    100% {
+      transform: translate(60px, 0);
+    }
+  }
 
 #lyrics {
   font-size: 6em;
@@ -84,19 +145,16 @@
 #stkr{
   /*animation:2s ease-in-out infinite rotation;*/
   position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 50px;
-  height: 300px;
+  top: 100px;
+  left: 100px;
+  width: 100px;
+  height: 100px;
   line-height: 100px;
-  background: rgba(0, 0, 0, 0.5);
-  background-color: tomato;
-  border-radius: 30px;
   transition: 0s;
   transition-timing-function: ease-out;
   pointer-events: none;
   z-index: 10;
-
+  /*background-color: aqua;*/
 }
 
 @keyframes rotation{
@@ -105,5 +163,49 @@
   50%{ transform:rotate(0); }
   75%{ transform:rotate(-45deg); }
   100%{ transform:rotate(0deg); }
+}
 
+#light{
+  z-index: 3;
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  width: 30px;
+  height: 150px;
+  line-height: 100px;
+  /*miku*/
+  background-color: rgb(70, 255, 130);
+  
+  /*white*/
+  /*background-color: rgb(240, 240, 255);*/
+  border-radius: 10px;
+}
+#cross{
+  z-index: 2;
+  position: absolute;
+  top:140px;
+  left:1px;
+  width: 38px;
+  height: 25px;
+  line-height: 100px;
+  background-color: azure;
+  border-radius: 10px;
+}
+#grip {
+  z-index: 2;
+  position: absolute;
+  top: 155px;
+  left: 6px;
+  width: 28px;
+  height: 60px;
+  line-height: 100px;
+  background-color: azure;
+  border-radius: 10px;
+}
+/*design test*/
+#black {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(10, 10, 40, 0.8);
 }

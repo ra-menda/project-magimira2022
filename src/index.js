@@ -48,8 +48,10 @@ const positionEl = document.querySelector("#position strong");
 
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
-const phraseEl = document.querySelector("#container p");
-//const beatbarEl = document.querySelector("#beatbar");
+
+const phraseEl = document.querySelector("#lyrics"/*"#container p"*/);
+const phraseEl2 = document.querySelector("#lyrics2");
+const changecolor = document.querySelector('#change_color')
 
 /**
  * TextAlive App が初期化されたときに呼ばれる
