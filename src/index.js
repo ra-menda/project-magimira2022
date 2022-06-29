@@ -234,22 +234,22 @@ var color = 1;
 function changeColor() {
   switch (color) {
     case 1:
-      document.getElementById('stkr').style.background = "#0050FF7F";
+      document.getElementById('light').style.background = "#46FF82";
       color++;
       break;
 
     case 2:
-      document.getElementById('stkr').style.background = "#FF00007F";
+      document.getElementById('light').style.background = "#ff0000";
       color++;
       break;
 
     case 3:
-      document.getElementById('stkr').style.background = "#F7FF007E";
+      document.getElementById('light').style.background = "#F7FF00";
       color++;
       break;
 
     case 4:
-      document.getElementById('stkr').style.background = "#00F6FF7C";
+      document.getElementById('light').style.background = "#00F6FF";
       color = 1;
       break;
   }
