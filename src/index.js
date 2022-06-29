@@ -54,6 +54,7 @@ const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#container p");
 const changecolor = document.querySelector('#change_color')
 const bar = document.querySelector("#bar");
+const mainVisualBgArea = document.querySelector('#mainVisualBgArea');
 //const beatbarEl = document.querySelector("#beatbar");
 
 /**
@@ -148,13 +149,28 @@ function onVideoReady(v) {
   }
 }
 
+ const miku = ["../img/image.png","../img/image2.png"];
+
 function onTimeUpdate(position) {
   document.querySelector("#beat_index").textContent = player.findBeat(position).index;
   const duration = player.findBeat(position).duration;
   document.querySelector("#beat_duration").textContent = duration.toString();
   const bpm = 1000 / duration * 60
   document.querySelector("#beat_1").textContent = bpm.toString();
-  document.getElementById('image').style.animationDuration = (duration * 2).toString() + "ms";
+  document.getElementById('image').style.animationDuration = (duration * 4).toString() + "ms";
+  //画像入れ替え
+  mikuTimer(duration * 2);
+}
+
+var judge = -1;
+
+function mikuTimer(beattime){
+  judge++;
+  if(judge == miku.length ){
+    judge = 0;
+  }
+  image.src  = miku[judge];
+  setTimeout("mikuTimer()",beattime);
 }
 
 /**
