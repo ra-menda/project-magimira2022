@@ -45,16 +45,22 @@
   position: absolute;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-direction: normal;
   animation-name: anim_s;
-  animation-duration: 2s;
+  animation-duration: 200s;
 }
   @keyframes anim_s {
     0% {
-      transform: translate(0px, 0);
+      transform: translate(200px, 0) scale(1,1);
+    }
+    48%{
+      transform: translate(-200px, 0) scale(1,1);
+    }
+    52%{
+      transform: translate(-200px, 0) scale(-1,1);
     }
     100% {
-      transform: translate(60px, 0);
+      transform: translate(200px, 0) scale(-1,1);
     }
   }
   

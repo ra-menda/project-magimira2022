@@ -157,24 +157,7 @@ function onTimeUpdate(position) {
   document.querySelector("#beat_duration").textContent = duration.toString();
   const bpm = 1000 / duration * 60
   document.querySelector("#beat_1").textContent = bpm.toString();
-  document.getElementById('image').style.animationDuration = (duration * 4).toString() + "ms";
-  //画像入れ替え
-  mikuTimer(duration * 2);
-}
-
-let judge = true;
-
-function mikuTimer(beattime){
-  if(judge){
-    document.getElementById("image").style.transform = "scale(-1,1)";
-    judge = false;
-  }
-  else{
-    document.getElementById("image").style.transform = "scale(1,1)";
-    judge = true;
-  }
-  // image.src  = miku[judge];
-  setTimeout("mikuTimer()",beattime);
+  document.getElementById('image').style.animationDuration = (duration * 16).toString() + "ms";
 }
 
 /**
