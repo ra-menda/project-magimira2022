@@ -47,7 +47,7 @@
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-name: anim_s;
-  animation-duration: 200s;
+  animation-duration: 0s;
 }
   @keyframes anim_s {
     0% {
