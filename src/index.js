@@ -59,8 +59,8 @@ const positionEl = document.querySelector("#position strong");
 const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
-const phraseEl = document.querySelector("#lyrics"/*"#container p"*/);
-const phraseEl2 = document.querySelector("#lyrics2");
+const phraseEl = document.querySelector("#testcssLiricsLeft"/*"#lyrics"*//*"#container p"*/);
+const phraseEl2 = document.querySelector("#testcssLiricsRight"/*"#lyrics2"*/);
 const changecolor = document.querySelector('#change_color')
 
 /**

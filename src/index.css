@@ -1,190 +1,113 @@
-#overlay {
+/*画面ブラウザ上でマウスカーソルが表示されなくなる*/
+/*body{cursor: none;}*/
+/*ページ全体の背景色*/
+#black {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  height: 100%; width: 100%;
+  background-color: rgba(10, 10, 40, 0.8);
+}
+/*起動時のスタート*/
+#overlay {
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background: #0009;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   z-index: 100;
 }
 #overlay .play {
   padding: 7em;
 }
-
-/*body{
-  cursor: none;
-}*/
-
 #container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
   background-color: dimgray;
 }
 #container p {
-  padding: 0 0.5em;
-  font-weight: bold;
-  text-align: center;
+  padding: 0 0.5em; font-weight: bold; text-align: center;
 }
 /*歌詞*/
 #lyrics {
-  position: absolute;
-  top: 15%;
-  left: 50%;
+  position: absolute; top: 15%; left: 50%;
   font-size: 3.2em;
   writing-mode: vertical-rl;
-  animation: infinite;
-  animation-name: sing;
-  animation-duration: 7s;
+  animation: infinite; animation-name: sing; animation-duration: 7s;
 }
-  @keyframes sing{
-    0%{
-      transrateX: 0%;
-      transrateY: 0%;
-      scale: 100%;
-    }
-    100%{
-      transrateX: -10px;
-      transrateY: -5px;
-      scale: 200%;
-    }
+/*アニメーション調整必須*/
+@keyframes sing{
+  0%{transrateX: 0%; transrateY: 0%; scale: 100%;}
+  100%{transrateX: -10px; transrateY: -5px; scale: 200%;}
+}
+#lyrics2{
+  position: absolute; top: 15%; right: 50%;
+  font-size: 3.2em; writing-mode: vertical-rl;
+  animation: infinite; animation-name: sing2; animation-duration: 7s;
+}
+/*アニメーション調整必須*/
+@keyframes sing2{
+  0%{
+    /*transrateX: 0%;
+    transrateY: 0%;*/
+    top: 20%;
+    scale: 100%;
   }
-  #lyrics2{
-    position: absolute;
-    top: 15%;
-    right: 50%;
-    font-size: 3.2em;
-    writing-mode: vertical-rl;
-    animation: infinite;
-    animation-name: sing2;
-    animation-duration: 7s;
+  100%{
+    top:5%;
+    transrateY: -20%;
+    scale: 200%;
   }
-  @keyframes sing2{
-    0%{
-      /*transrateX: 0%;
-      transrateY: 0%;*/
-      top: 20%;
-      scale: 100%;
-    }
-    100%{
-      top:5%;
-      transrateY: -20%;
-      scale: 200%;
-    }
-  }
-
+}
 #image{
-  width: 30%;
-  height: auto;
-  right: 35%; 
-  bottom: 20%; 
-  position: absolute;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-name: anim_s;
-  animation-duration: 2s;
+  position: absolute; width: 30%; height: auto; right: 35%; bottom: 30%; 
+  animation-timing-function: ease-in-out; animation-iteration-count: infinite;
+  animation-direction: alternate; animation-name: anim_s; animation-duration: 2s;
+  z-index: 9;
 }
-  @keyframes anim_s {
-    0% {
-      transform: translate(0px, 0);
-    }
-    100% {
-      transform: translate(60px, 0);
-    }
-  }
-
-#lyrics {
-  font-size: 6em;
+@keyframes anim_s {
+  0% {transform: translate(0px, 0);}
+  100% {transform: translate(60px, 0);}
 }
-
-#image{
-  width: 30%;
-  height: auto;
-  right: 35%; 
-  bottom: 20%; 
-  position: absolute;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-name: anim_s;
-  animation-duration: 2s;
-}
-  @keyframes anim_s {
-    0% {
-      transform: translate(0px, 0);
-    }
-    100% {
-      transform: translate(60px, 0);
-    }
-  }
-  
-
-
 #media {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  padding: 4px;
+  position: absolute; right: 10px; bottom: 10px; padding: 4px;
   background: rgba(0,0,0,0.2);
 }
-
+/*用途不明*/
 #header {
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: absolute; left: 0; top: 0;
 }
-
+/*用途不明*/
 #meta {
-  margin: 10px;
-  padding: 5px;
+  margin: 10px; padding: 5px;
   background: rgba(0,0,0,0.2);
 }
-
+/*用途不明*/
 #footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  position: absolute; left: 0; bottom: 0;
 }
-
+/*用途不明*/
 #footer > p {
   margin-left: 10px;
 }
-
+/*用途不明*/
 #control {
-  margin: 10px;
-  padding: 5px;
+  margin: 10px; padding: 5px;
   background: rgba(0,0,0,0.2);
 }
-
+/*用途不明*/
 #control > button {
   margin-right: 5px;
 }
+/*用途不明*/
 #control > button:last-child {
   margin-right: 0;
 }
-
-  /* マウスストーカー用CSS*/
+/* マウスストーカー*/
 #stkr{
   /*animation:2s ease-in-out infinite rotation;*/
-  position: fixed;
-  top: 100px;
-  left: 100px;
-  width: 40px;
-  height: 370px;
-  line-height: 100px;
+  position: fixed; top: 70%; left:50%; width: 40px; height: 370px;
   /*transition: 0s;
   transition-timing-function: ease-out;*/
-  pointer-events: none;
   z-index: 10;
-  /*background-color: aqua;*/
 }
-
+/*ペンライト用アニメーション*/
 @keyframes rotation{
   0%{ transform:rotate(0);}
   25%{ transform:rotate(45deg); }
@@ -192,48 +115,64 @@
   75%{ transform:rotate(-45deg); }
   100%{ transform:rotate(0deg); }
 }
-
 #light{
   z-index: 3;
-  position: absolute;
-  top: 0px;
-  left: 5px;
-  width: 30px;
-  height: 150px;
-  line-height: 100px;
-  /*miku*/
-  background-color: rgb(70, 255, 130);
-  
-  /*white*/
+  position: absolute;top: 0px; left: 5px; width: 30px; height: 150px;
+  /*miku*/background-color: rgb(70, 255, 130);
   /*background-color: rgb(240, 240, 255);*/
   border-radius: 10px;
 }
 #cross{
   z-index: 2;
-  position: absolute;
-  top:140px;
-  left:1px;
-  width: 38px;
-  height: 25px;
-  line-height: 100px;
+  position: absolute; top:140px; left:1px; width: 38px; height: 25px;
   background-color: azure;
   border-radius: 10px;
 }
 #grip {
   z-index: 2;
-  position: absolute;
-  top: 155px;
-  left: 6px;
-  width: 28px;
-  height: 60px;
-  line-height: 100px;
+  position: absolute; top: 155px; left: 6px; width: 28px; height: 60px;
   background-color: azure;
   border-radius: 10px;
 }
-/*design test*/
-#black {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(10, 10, 40, 0.8);
+/*ステージ全体のサイズと位置を定義*/
+#stageContainer{
+  position: absolute; top: 55%; left: 15%; height: 25%; width: 70%;
+  /*background-color: aqua;*/
+  z-index: 8;
+}
+#stage{
+  position:absolute; top:0%; left:0%; height: 85%; width:100%;
+  box-sizing: border-box; border-bottom: 150px solid #ccc;
+  border-left: 100px solid transparent; border-right: 100px solid transparent;
+}
+#stageunder{
+  position: absolute; top:85%; left:0%; height: 15%; width: 100%;
+  background-color:slategrey;
+}
+#field{
+  position: absolute; top: 60%; left: 0%; height: 40%; width: 100%;
+  background-color: darkgreen;
+}
+#monitor{
+  position: absolute; top: 5%; left: 25%; height: 30%; width: 50%;
+  background-color: greenyellow;
+}
+.testcssLilics{
+  writing-mode: vertical-rl;
+  text-align: center; font-size: 30px; 
+  /*フォントをいい感じに選ぼう*/
+  font-style: italic;
+  /*background-color: white;*/
+  height: 60%; width: 20%;
+}
+#testcssLiricsLeft{
+  position: absolute; top: 2%; left: 2%;
+}
+#testcssLiricsRight{
+  position: absolute; top: 2%; left: 78%;
+}
+#testcssConfig{
+  position: absolute; bottom: 2%; right: 2%; height: 15%; width: 60%;
+  background-color: darkgray;
+  text-align: center; font-size:30px;
 }
