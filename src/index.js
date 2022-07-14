@@ -159,7 +159,6 @@ function onTimeUpdate(position) {
   document.querySelector("#prev").textContent = before_1;
  // BPM差が10以上であればdurationを更新する
  if(Math.abs(bpm - before_1) > 16) {
-  console.log(bpm - before_1);
   document.getElementById('image').style.animationDuration = (duration* adjustment).toString() + "ms";
   document.getElementById('speaker').style.animationDuration = (duration* adjustment).toString() + "ms";
 }
