@@ -42,24 +42,79 @@
   height: auto;
   right: 35%; 
   bottom: 20%; 
+  z-index: 2;
   position: absolute;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-direction: normal;
   animation-name: anim_s;
-  animation-duration: 2s;
+  animation-duration: 0s;
 }
   @keyframes anim_s {
     0% {
-      transform: translate(0px, 0);
+      transform: translate(200px, 0) scale(1,1);
+    }
+    49%{
+      transform: translate(-200px, 0) scale(1,1);
+    }
+    50%{
+      transform: translate(-200px, 0) scale(-1,1);
+    }
+    99%{
+      transform: translate(200px, 0) scale(-1,1);
     }
     100% {
-      transform: translate(60px, 0);
+      transform: translate(200px, 0) scale(1,1);
     }
   }
   
+  #speaker{
+    width: 30%;
+    height: auto;
+    right: 35%; 
+    bottom: 25%;
+    position: absolute;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-name:anim_d;
+    animation-duration: 0s;
+    z-index: 1;
+  }
 
-
+  @keyframes anim_d {
+    0% {
+      transform: translate(200px, 50px);
+    }
+    12%{
+      transform: translate(100px, 0px);
+    }
+    25%{
+      transform: translate(0px, 50px);
+    }
+    37%{
+      transform: translate(-100px, 0px);
+    }
+    49%{
+      transform: translate(-200px, 50px);
+    }
+    50%{
+      transform: translate(-200px, 50px);
+    }
+    62%{
+      transform: translate(-100px, 0px);
+    }
+    75%{
+      transform: translate(0px, 50px);
+    }
+    87%{
+      transform: translate(100px, 0px);
+    }
+    100% {
+      transform: translate(200px, 50px) ;
+    }
+  }
+ 
 #media {
   position: absolute;
   right: 10px;
