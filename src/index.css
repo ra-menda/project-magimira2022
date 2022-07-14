@@ -53,10 +53,10 @@
     0% {
       transform: translate(200px, 0) scale(1,1);
     }
-    48%{
+    49%{
       transform: translate(-200px, 0) scale(1,1);
     }
-    52%{
+    50%{
       transform: translate(-200px, 0) scale(-1,1);
     }
     100% {
@@ -64,6 +64,57 @@
     }
   }
   
+  #speaker{
+    width: 30%;
+    height: auto;
+    right: 35%; 
+    bottom: 20%;
+    position: absolute;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-name:anim_d;
+    animation-duration: 0s;
+  }
+
+  @keyframes anim_d {
+    0% {
+      transform: translate(200px, 0px);
+    }
+    25%{
+      transform: translate(0px, 50px);
+    }
+    49%{
+      transform: translate(-200px, 0px);
+    }
+    50%{
+      transform: translate(-200px, 0px);
+    }
+    75%{
+      transform: translate(0px, -50px);
+    }
+    100% {
+      transform: translate(200px, 0px) ;
+    }
+  }
+  @keyframes anim_f {
+    0% {
+      transform: translate(0px, -50px);
+    }
+    25%{
+      transform: translate(0px, 50px);
+    }
+    50%{
+      transform: translate(0px, -10px);
+    }
+    75%{
+      transform: translate(0px, 100px);
+    }
+    100% {
+      transform: translate(0px, 0px) ;
+    }
+  }
+
 
 
 #media {

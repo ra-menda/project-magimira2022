@@ -54,8 +54,6 @@ const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#container p");
 const changecolor = document.querySelector('#change_color')
 const bar = document.querySelector("#bar");
-const mainVisualBgArea = document.querySelector('#mainVisualBgArea');
-//const beatbarEl = document.querySelector("#beatbar");
 
 /**
  * TextAlive App が初期化されたときに呼ばれる
@@ -149,15 +147,38 @@ function onVideoReady(v) {
   }
 }
 
- //const miku = ["../img/image.png","../img/image2.png"];
+var prev=0;
+var before_2=0;
+var adjustment = 16;
 
-function onTimeUpdate(position) {
+function onTimeUpdate(position) {  
   document.querySelector("#beat_index").textContent = player.findBeat(position).index;
   const duration = player.findBeat(position).duration;
   document.querySelector("#beat_duration").textContent = duration.toString();
   const bpm = 1000 / duration * 60
   document.querySelector("#beat_1").textContent = bpm.toString();
-  document.getElementById('image').style.animationDuration = (duration * 16).toString() + "ms";
+  document.querySelector("#prev").textContent = prev;
+  document.querySelector("#before_2").textContent = before_2;
+  // const nextbeat = player.findBeat(next).duration;
+  // document.querySelector("#next").textContent = nextbeat.toString();
+  if(1000 / ((duration - prev) * adjustment) * 60 < Math.abs(1)){
+    document.getElementById('image').style.animationDuration = (duration * adjustment).toString() + "ms";
+    document.getElementById('speaker').style.animationDuration = (duration * adjustment).toString() + "ms";
+    before_2 = prev;
+    prev = duration;
+  }
+  else{
+    if(1000 / ((duration - before_2) * adjustment) * 60 < Math.abs(1)){
+      document.getElementById('image').style.animationDuration = ( duration* adjustment).toString() + "ms";
+      document.getElementById('speaker').style.animationDuration = (duration* adjustment).toString() + "ms";
+    }
+    else{
+      document.getElementById('image').style.animationDuration = ( prev* 16).toString() + "ms";
+      document.getElementById('speaker').style.animationDuration = (prev* 16).toString() + "ms";
+    }
+    before_2 = prev;
+    prev = duration;
+  }
 }
 
 /**
