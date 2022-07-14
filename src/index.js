@@ -147,10 +147,10 @@ function onVideoReady(v) {
   }
 }
 
-var before_1=0;
+var before_1 = 0;
 var adjustment = 16;
 
-function onTimeUpdate(position) {  
+function onTimeUpdate(position) {
   document.querySelector("#beat_index").textContent = player.findBeat(position).index;
   const duration = player.findBeat(position).duration;
   document.querySelector("#beat_duration").textContent = duration.toString();
@@ -159,10 +159,10 @@ function onTimeUpdate(position) {
   document.querySelector("#prev").textContent = before_1;
  // BPM差が10以上であればdurationを更新する
  if(Math.abs(bpm - before_1) > 16) {
-  document.getElementById('image').style.animationDuration = (duration* adjustment).toString() + "ms";
-  document.getElementById('speaker').style.animationDuration = (duration* adjustment).toString() + "ms";
-}
-  before_1=bpm;
+    document.getElementById('image').style.animationDuration = (duration* adjustment).toString() + "ms";
+    document.getElementById('speaker').style.animationDuration = (duration* adjustment).toString() + "ms";
+  }
+  before_1 = bpm;
 }
 
 /**
