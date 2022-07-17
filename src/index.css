@@ -24,7 +24,7 @@
 }
 
 #image{
-  position: absolute; width: 30%; height: auto; right: 35%; bottom: 40%; 
+  position: absolute; width: 30%; height: auto; right: 35%; bottom: 40%;
   animation-timing-function: ease-in-out; animation-iteration-count: infinite;
   animation-direction: alternate; animation-name: anim_s; animation-duration: 2s;
   z-index: 3;
@@ -62,7 +62,7 @@
 }
 /*ペンライト用アニメーション*/
 @keyframes rotation{
-  0%{ transform:rotate(0);}
+  0%{ transform:rotate(0); }
   25%{ transform:rotate(45deg); }
   50%{ transform:rotate(0); }
   75%{ transform:rotate(-45deg); }
@@ -165,7 +165,7 @@
   z-index: 90;
 }
 #Config{
-  position: absolute; bottom: 2%; right: 2%; height: 50px; width: 280px;
+  position: absolute; bottom: 2%; right: 2%; height: 50px; width: 290px;
   background-color: darkgray;
   text-align: center; font-size:10px;
   z-index: 50;
@@ -173,7 +173,6 @@
 /*用途不明*/
 #control {
   margin: 0px; padding: 2px;
-  z-index: 10000;
 }
 /*用途不明*/
 #control > button {

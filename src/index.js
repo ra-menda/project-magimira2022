@@ -59,8 +59,8 @@ const positionEl = document.querySelector("#position strong");
 const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
-const phraseEl = document.querySelector("#cssLiricsLeft"/*"#lyrics"*//*"#container p"*/);
-const phraseEl2 = document.querySelector("#cssLiricsRight"/*"#lyrics2"*/);
+const phraseEl = document.querySelector("#cssLiricsLeft");
+const phraseEl2 = document.querySelector("#cssLiricsRight");
 const changecolor = document.querySelector('#change_color')
 
 /**
@@ -76,7 +76,7 @@ function onAppReady(app) {
     // 再生ボタン
     playBtns.forEach((playBtn) =>
       playBtn.addEventListener("click", () => {
-        /*player.video && */player.requestPlay();
+        player.video && player.requestPlay();
       })
     );
     // 歌詞頭出しボタン
