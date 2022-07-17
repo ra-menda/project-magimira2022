@@ -219,7 +219,7 @@ function onAppMediaChange(songURL) {
 }
 
 // 色管理利用
-var color = 1;
+var color = 2;
 
 // ゴリ押し色変更
 function changeColor() {
