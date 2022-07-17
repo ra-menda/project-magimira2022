@@ -28,7 +28,7 @@ function animatePhrase(now, unit) {
       olophrase = unit.text;
     }
   }
-};
+}
 
 // TextAlive Player を作る
 const player = new Player({
@@ -55,14 +55,12 @@ const playBtns = document.querySelectorAll(".play");
 const jumpBtn = document.querySelector("#jump");
 const pauseBtn = document.querySelector("#pause");
 const rewindBtn = document.querySelector("#rewind");
-const positionEl = document.querySelector("#position strong");
 const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#cssLiricsLeft");
 const phraseEl2 = document.querySelector("#cssLiricsRight");
-const changecolor = document.querySelector('#change_color')
-const bar = document.querySelector("#bar");
+const changecolor = document.querySelector('#change_color');
 
 
 /**
@@ -144,12 +142,8 @@ var before_1 = 0;
 var adjustment = 16;
 
 function onTimeUpdate(position) {
-  //document.querySelector("#beat_index").textContent = player.findBeat(position).index;
   const duration = player.findBeat(position).duration;
-  //document.querySelector("#beat_duration").textContent = duration.toString();
   const bpm = 1000 / duration * 60
-  //document.querySelector("#beat_1").textContent = bpm.toString();
-  //document.querySelector("#prev").textContent = before_1;
  // BPM差が10以上であればdurationを更新する
  if(Math.abs(bpm - before_1) > 16) {
     document.getElementById('image').style.animationDuration = (duration* adjustment).toString() + "ms";
@@ -182,8 +176,8 @@ function onTimerReady(t) {
  * @param {number} position - https://developer.textalive.jp/packages/textalive-app-api/interfaces/playereventlistener.html#onthrottledtimeupdate
  */
 function onThrottledTimeUpdate(position) {
- 再生位置を表示する
-  positionEl.textContent = String(Math.floor(position));
+  // 再生位置を表示する
+  //  positionEl.textContent = String(Math.floor(position));
 }
 
 // 再生が始まったら #overlay を非表示に
@@ -221,27 +215,39 @@ function onAppMediaChange(songURL) {
 // 色管理利用
 var color = 2;
 
-// ゴリ押し色変更
+// 色変更
 function changeColor() {
+  let miniLightColor;
+// 'miniLight'Classの配列が格納される
+  const miniLightColorElements = document.getElementsByClassName('miniLight');
+
   switch (color) {
     case 1:
       document.getElementById('light').style.background = "#46FF82";
+      miniLightColor = "#46FF82";
       color++;
       break;
 
     case 2:
       document.getElementById('light').style.background = "#ff0000";
+      miniLightColor = "#ff0000";
       color++;
       break;
 
     case 3:
       document.getElementById('light').style.background = "#F7FF00";
+      miniLightColor = "#F7FF00";
       color++;
       break;
 
     case 4:
       document.getElementById('light').style.background = "#00F6FF";
+      miniLightColor = "#00F6FF";
       color = 1;
       break;
+  }
+
+  for (i = 0; i < miniLightColorElements.length; i++) {
+    miniLightColorElements[i].style.backgroundColor = miniLightColor;
   }
 }
