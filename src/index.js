@@ -59,8 +59,8 @@ const positionEl = document.querySelector("#position strong");
 const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
-const phraseEl = document.querySelector("#container p");
-const phraseEl2 = document.querySelector("#lyrics2");
+const phraseEl = document.querySelector("#cssLiricsLeft");
+const phraseEl2 = document.querySelector("#cssLiricsRight");
 const changecolor = document.querySelector('#change_color')
 const bar = document.querySelector("#bar");
 
@@ -81,7 +81,6 @@ function onAppReady(app) {
         player.video && player.requestPlay();
       })
     );
-
     // 歌詞頭出しボタン
     jumpBtn.addEventListener(
       "click",
@@ -89,46 +88,27 @@ function onAppReady(app) {
         player.video &&
         player.requestMediaSeek(player.video.firstChar.startTime)
     );
-
     // 一時停止ボタン
     pauseBtn.addEventListener(
         "click",
         () => player.video && player.requestPause()
     );
-
     // 巻き戻しボタン
     rewindBtn.addEventListener(
         "click",
         () => player.video && player.requestMediaSeek(0)
     );
-
     // 楽曲再指定ボタン
     reloadBtn.addEventListener(
         "click",
         changeMedia
     );
-
     // 色変更ボタン
     changecolor.addEventListener(
         "click",
         changeColor
     )
-
-    document
-        .querySelector("#header a")
-        .setAttribute(
-            "href",
-            "https://developer.textalive.jp/app/run/?ta_app_url=https%3A%2F%2Ftextalivejp.github.io%2Ftextalive-app-basic%2F&ta_song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DygY2qObZv24"
-        );
-  } else {
-    document
-      .querySelector("#header a")
-      .setAttribute(
-        "href",
-        "https://textalivejp.github.io/textalive-app-basic/"
-      );
   }
-
   // 楽曲URLが指定されていなければ マジカルミライ 2020テーマ曲を読み込む
   if (!app.songUrl) {
     player.createFromSongUrl("https://www.youtube.com/watch?v=ZOTJgXBkJpc");
@@ -152,9 +132,9 @@ function onVideoReady(v) {
     p.animate = animatePhrase;
     p = p.next;
   }
-  // 曲変更後に歌詞文字を"-"にするのと、大きい再生ボタンを再表示する。
-  phraseEl.textContent = "-";
-  phraseEl2.textContent = "-";
+  // 曲変更後に歌詞文字を" "にするのと、大きい再生ボタンを再表示する。
+  phraseEl.textContent = " ";
+  phraseEl2.textContent = " ";
   olophrase = ""
   isRight = true;
   // document.querySelector("#overlay").style.visibility = "visible";
@@ -164,12 +144,12 @@ var before_1 = 0;
 var adjustment = 16;
 
 function onTimeUpdate(position) {
-  document.querySelector("#beat_index").textContent = player.findBeat(position).index;
+  //document.querySelector("#beat_index").textContent = player.findBeat(position).index;
   const duration = player.findBeat(position).duration;
-  document.querySelector("#beat_duration").textContent = duration.toString();
+  //document.querySelector("#beat_duration").textContent = duration.toString();
   const bpm = 1000 / duration * 60
-  document.querySelector("#beat_1").textContent = bpm.toString();
-  document.querySelector("#prev").textContent = before_1;
+  //document.querySelector("#beat_1").textContent = bpm.toString();
+  //document.querySelector("#prev").textContent = before_1;
  // BPM差が10以上であればdurationを更新する
  if(Math.abs(bpm - before_1) > 16) {
     document.getElementById('image').style.animationDuration = (duration* adjustment).toString() + "ms";
@@ -202,7 +182,7 @@ function onTimerReady(t) {
  * @param {number} position - https://developer.textalive.jp/packages/textalive-app-api/interfaces/playereventlistener.html#onthrottledtimeupdate
  */
 function onThrottledTimeUpdate(position) {
-// 再生位置を表示する
+ 再生位置を表示する
   positionEl.textContent = String(Math.floor(position));
 }
 
@@ -213,15 +193,15 @@ function onPlay() {
 
 // 再生が一時停止・停止したら歌詞表示をリセット
 function onPause() {
-  phraseEl.textContent = "-";
-  phraseEl2.textContent = "-";
+  phraseEl.textContent = " ";
+  phraseEl2.textContent = " ";
   olophrase = ""
   isRight = !isRight;
 }
 
 function onStop() {
-  phraseEl.textContent = "-";
-  phraseEl2.textContent = "-";
+  phraseEl.textContent = " ";
+  phraseEl2.textContent = " ";
   olophrase = ""
   isRight = !isRight;
 }
@@ -245,22 +225,22 @@ var color = 1;
 function changeColor() {
   switch (color) {
     case 1:
-      document.getElementById('stkr').style.background = "#0050FF7F";
+      document.getElementById('light').style.background = "#46FF82";
       color++;
       break;
 
     case 2:
-      document.getElementById('stkr').style.background = "#FF00007F";
+      document.getElementById('light').style.background = "#ff0000";
       color++;
       break;
 
     case 3:
-      document.getElementById('stkr').style.background = "#F7FF007E";
+      document.getElementById('light').style.background = "#F7FF00";
       color++;
       break;
 
     case 4:
-      document.getElementById('stkr').style.background = "#00F6FF7C";
+      document.getElementById('light').style.background = "#00F6FF";
       color = 1;
       break;
   }
