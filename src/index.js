@@ -76,7 +76,7 @@ function onAppReady(app) {
     // 再生ボタン
     playBtns.forEach((playBtn) =>
       playBtn.addEventListener("click", () => {
-        player.video && player.requestPlay();
+        /*player.video && */player.requestPlay();
       })
     );
 
@@ -150,9 +150,9 @@ function onVideoReady(v) {
     p.animate = animatePhrase;
     p = p.next;
   }
-  // 曲変更後に歌詞文字を"-"にするのと、大きい再生ボタンを再表示する。
-  phraseEl.textContent = "-";
-  phraseEl2.textContent = "-";
+  // 曲変更後に歌詞文字を" "にするのと、大きい再生ボタンを再表示する。
+  phraseEl.textContent = " ";
+  phraseEl2.textContent = " ";
   olophrase = ""
   isRight = true;
   // document.querySelector("#overlay").style.visibility = "visible";
@@ -191,7 +191,7 @@ function onTimerReady(t) {
  * @param {number} position - https://developer.textalive.jp/packages/textalive-app-api/interfaces/playereventlistener.html#onthrottledtimeupdate
  */
 function onThrottledTimeUpdate(position) {
-// 再生位置を表示する
+ 再生位置を表示する
   positionEl.textContent = String(Math.floor(position));
 }
 
@@ -202,15 +202,15 @@ function onPlay() {
 
 // 再生が一時停止・停止したら歌詞表示をリセット
 function onPause() {
-  phraseEl.textContent = "-";
-  phraseEl2.textContent = "-";
+  phraseEl.textContent = " ";
+  phraseEl2.textContent = " ";
   olophrase = ""
   isRight = !isRight;
 }
 
 function onStop() {
-  phraseEl.textContent = "-";
-  phraseEl2.textContent = "-";
+  phraseEl.textContent = " ";
+  phraseEl2.textContent = " ";
   olophrase = ""
   isRight = !isRight;
 }
