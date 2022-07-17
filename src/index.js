@@ -62,6 +62,8 @@ const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#cssLiricsLeft");
 const phraseEl2 = document.querySelector("#cssLiricsRight");
 const changecolor = document.querySelector('#change_color')
+const bar = document.querySelector("#bar");
+
 
 /**
  * TextAlive App が初期化されたときに呼ばれる
@@ -138,13 +140,22 @@ function onVideoReady(v) {
   // document.querySelector("#overlay").style.visibility = "visible";
 }
 
+var before_1 = 0;
+var adjustment = 16;
+
 function onTimeUpdate(position) {
-  document.querySelector("#beat_index").textContent = player.findBeat(position).index;
+  //document.querySelector("#beat_index").textContent = player.findBeat(position).index;
   const duration = player.findBeat(position).duration;
-  document.querySelector("#beat_duration").textContent = duration.toString();
+  //document.querySelector("#beat_duration").textContent = duration.toString();
   const bpm = 1000 / duration * 60
-  document.querySelector("#beat_1").textContent = bpm.toString();
-  document.getElementById('image').style.animationDuration = (duration * 2).toString() + "ms";
+  //document.querySelector("#beat_1").textContent = bpm.toString();
+  //document.querySelector("#prev").textContent = before_1;
+ // BPM差が10以上であればdurationを更新する
+ if(Math.abs(bpm - before_1) > 16) {
+    document.getElementById('image').style.animationDuration = (duration* adjustment).toString() + "ms";
+    document.getElementById('speaker').style.animationDuration = (duration* adjustment).toString() + "ms";
+  }
+  before_1 = bpm;
 }
 
 /**
