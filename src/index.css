@@ -121,7 +121,7 @@
   letter-spacing: 0.4ex;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   height: 60%;
-  z-index: 60;
+  z-index: 90;
 }
 /*歌詞*/
 #lyrics {
@@ -157,10 +157,12 @@
 #cssLiricsLeft{
   position: absolute; top: 3%; left: 7%;
   color: azure;
+  z-index: 90;
 }
 #cssLiricsRight{
   position: absolute; top: 3%; right: 7%;
   color: azure;
+  z-index: 90;
 }
 #Config{
   position: absolute; bottom: 2%; right: 2%; height: 50px; width: 280px;
