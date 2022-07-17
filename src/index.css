@@ -2,7 +2,7 @@
 #black {
   position: absolute;
   height: 100%; width: 100%;
-  background-color: rgba(10, 10, 40, 0.8);
+  background-color: rgba(0, 0, 12, 0.9);
 }
 /*起動時のスタート*/
 #overlay {
@@ -22,39 +22,9 @@
 #container p {
   padding: 0 0.5em; font-weight: bold; text-align: center;
 }
-/*歌詞*/
-#lyrics {
-  position: absolute; top: 15%; left: 50%;
-  font-size: 3.2em;
-  writing-mode: vertical-rl;
-  animation: infinite; animation-name: sing; animation-duration: 7s;
-}
-/*アニメーション調整必須*/
-@keyframes sing{
-  0%{transrateX: 0%; transrateY: 0%; scale: 100%;}
-  100%{transrateX: -10px; transrateY: -5px; scale: 200%;}
-}
-#lyrics2{
-  position: absolute; top: 15%; right: 50%;
-  font-size: 3.2em; writing-mode: vertical-rl;
-  animation: infinite; animation-name: sing2; animation-duration: 7s;
-}
-/*アニメーション調整必須*/
-@keyframes sing2{
-  0%{
-    /*transrateX: 0%;
-    transrateY: 0%;*/
-    top: 20%;
-    scale: 100%;
-  }
-  100%{
-    top:5%;
-    transrateY: -20%;
-    scale: 200%;
-  }
-}
+
 #image{
-  position: absolute; width: 30%; height: auto; right: 35%; bottom: 30%; 
+  position: absolute; width: 30%; height: auto; right: 35%; bottom: 40%; 
   animation-timing-function: ease-in-out; animation-iteration-count: infinite;
   animation-direction: alternate; animation-name: anim_s; animation-duration: 2s;
   z-index: 3;
@@ -88,6 +58,7 @@
   transition: 0s;
   transition-timing-function: ease-out;
   z-index: 5;
+  cursor: none;
 }
 /*ペンライト用アニメーション*/
 @keyframes rotation{
@@ -100,8 +71,7 @@
 #light{
   z-index: 3;
   position: absolute;top: 0px; left: 5px; width: 30px; height: 150px;
-  /*miku*/background-color: rgb(70, 255, 130);
-  /*background-color: rgb(240, 240, 255);*/
+  background-color: rgb(70, 255, 130);
   border-radius: 10px;
 }
 #cross{
@@ -118,7 +88,7 @@
 }
 /*ステージ全体のサイズと位置を定義*/
 #stageContainer{
-  position: absolute; top: 55%; left: 15%; height: 25%; width: 70%;
+  position: absolute; top: 45%; left: 15%; height: 25%; width: 70%;
   /*background-color: aqua;*/
   z-index: 2;
 }
@@ -127,32 +97,69 @@
   box-sizing: border-box; border-bottom: 150px solid #ccc;
   border-left: 100px solid transparent; border-right: 100px solid transparent;
 }
-#stageunder{
+#stageUnder{
   position: absolute; top:85%; left:0%; height: 15%; width: 100%;
   background-color:slategrey;
 }
 #field{
-  position: absolute; top: 60%; left: 0%; height: 40%; width: 100%;
-  background-color: darkgreen;
+  position: absolute; top: 50%; left: 0%; height: 50%; width: 100%;
+  background-color: rgba(23, 6, 50, 0.5);
 }
 #monitor{
-  position: absolute; top: 5%; left: 25%; height: 30%; width: 50%;
-  background-color: greenyellow;
+  position: absolute; top: 15%; left: 30%; height: 25%; width: 40%;
+  background-color:darkslategray;
+}
+#monitorInner{
+  position: absolute; top: 5%; left: 3%; height: 90%; width: 94%;
+  background-color:lightblue;
 }
 .ClassLilics{
   writing-mode: vertical-rl;
-  text-align: center; font-size: 35px; 
+  text-align: center; font-size: 42px; 
   /*フォントをいい感じに選ぼう*/
-  font-style: italic;
+  font-weight: 200;
+  letter-spacing: 0.4ex;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   height: 60%;
   z-index: 60;
 }
-#testcssLiricsLeft{
-  position: absolute; top: 5%; left: 2%;
+/*歌詞*/
+#lyrics {
+  position: absolute; top: 15%; left: 50%;
+  font-size: 3.2em;
+  writing-mode: vertical-rl;
+  animation: infinite; animation-name: sing; animation-duration: 7s;
+}
+/*アニメーション調整必須*/
+@keyframes sing{
+  0%{transrateX: 0%; transrateY: 0%; scale: 100%;}
+  100%{transrateX: -10px; transrateY: -5px; scale: 200%;}
+}
+#lyrics2{
+  position: absolute; top: 15%; right: 50%;
+  font-size: 3.2em; writing-mode: vertical-rl;
+  animation: infinite; animation-name: sing2; animation-duration: 7s;
+}
+/*アニメーション調整必須*/
+@keyframes sing2{
+  0%{
+    /*transrateX: 0%;
+    transrateY: 0%;*/
+    top: 10%;
+    scale: 100%;
+  }
+  100%{
+    top:15%;
+    translateY: -50%;
+    scale: 150%;
+  }
+}
+#cssLiricsLeft{
+  position: absolute; top: 3%; left: 7%;
   color: azure;
 }
-#testcssLiricsRight{
-  position: absolute; top: 5%; right: 2%;
+#cssLiricsRight{
+  position: absolute; top: 3%; right: 7%;
   color: azure;
 }
 #Config{
@@ -176,4 +183,139 @@
 }
 #meta {
   margin: 0px; padding: 2px;
+}
+.miniLight{
+  z-index: 3; position: absolute; width: 30px; height: 150px;
+  background-color: rgb(70, 255, 130);
+  border-radius: 10px;
+}
+#miniLight1{ top: 20%; left: 5%; transform: rotate(40deg);}
+#miniLight2{ top: 35%; left: 20%; transform: rotate(40deg);}
+#miniLight3{ top: 30%; left: 35%;  transform: rotate(40deg);}
+#miniLight4{ top: 35%; left: 50%; transform: rotate(40deg);}
+#miniLight5{ top: 30%; left: 65%; transform: rotate(40deg);}
+#miniLight6{ top: 35%; left: 80%; transform: rotate(40deg);}
+#miniLight7{ top: 25%; left: 94%; transform: rotate(40deg);}
+#miniLight8{ top: 55%; left: 7%; transform: rotate(40deg);}
+#miniLight9{ top: 60%; left: 25%; transform: rotate(40deg);}
+#miniLight10{ top: 50%; left: 40%; transform: rotate(40deg);}
+#miniLight11{ top: 65%; left: 55%; transform: rotate(40deg);}
+#miniLight12{ top: 50%; left: 70%; transform: rotate(40deg);}
+#miniLight13{ top: 60%; left: 85%; transform: rotate(40deg);}
+#miniLight14{ top: 75%; left: 15%; transform: rotate(40deg);}
+.sparkring{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 50%;
+  width: 100%;
+  z-index: 1;
+}
+#sparkringLeft1{
+  position: absolute;
+  top: 50%;
+  right: 51%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(-32deg);
+  background-color:deeppink;
+}
+#sparkringLeft2{
+  position: absolute;
+  top: 40%;
+  right: 50%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(-28deg);
+  background-color: blueviolet;
+}
+#sparkringLeft3{
+  position: absolute;
+  top: 30%;
+  right: 49%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(-24deg);
+  background-color:blue;
+}
+#sparkringLeft4{
+  position: absolute;
+  top: 20%;
+  right: 48%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(-20deg);
+  background-color: deeppink;
+}
+#sparkringLeft5{
+  position: absolute;
+  top: 10%;
+  right: 47%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(-16deg);
+  background-color:blueviolet;
+}
+#sparkringLeft6{
+  position: absolute;
+  top: 0%;
+  right: 46%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(-12deg);
+  background-color: blue;
+}
+#sparkringRight1{
+  position: absolute;
+  top: 50%;
+  left: 51%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(32deg);
+  background-color:deeppink;
+}
+#sparkringRight2{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(28deg);
+  background-color: blueviolet;
+}
+#sparkringRight3{
+  position: absolute;
+  top: 30%;
+  left: 49%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(24deg);
+  background-color:blue;
+}
+#sparkringRight4{
+  position: absolute;
+  top: 20%;
+  left: 48%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(20deg);
+  background-color: deeppink;
+}
+#sparkringRight5{
+  position: absolute;
+  top: 10%;
+  left: 47%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(16deg);
+  background-color:blueviolet;
+}
+#sparkringRight6{
+  position: absolute;
+  top: 0%;
+  left: 46%;
+  height: 5%;
+  width: 55%;
+  transform: rotate(12deg);
+  background-color: blue;
 }

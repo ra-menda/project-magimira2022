@@ -14,24 +14,55 @@
     <div id="cross"></div>
     <div id="grip"></div>
   </div>
+  <div class="sparkring">
+    <div id="sparkringLeft1"></div>
+    <div id="sparkringLeft2"></div>
+    <div id="sparkringLeft3"></div>
+    <div id="sparkringLeft4"></div>
+    <div id="sparkringLeft5"></div>
+    <div id="sparkringLeft6"></div>
+    <div id="sparkringRight1"></div>
+    <div id="sparkringRight2"></div>
+    <div id="sparkringRight3"></div>
+    <div id="sparkringRight4"></div>
+    <div id="sparkringRight5"></div>
+    <div id="sparkringRight6"></div>
+  </div>
   <!-- モニター -->
   <div id="monitor">
-    <div id="header"><a>test</a></div>
-    <div id="artist"><strong>artist:</strong> <span>-</span></div>
-    <div id="song"><strong>song:</strong> <span>-</span></div>
+    <div id ="monitorInner">
+      <div id="header"><a>test</a></div>
+      <div id="artist"><strong>artist:</strong> <span>-</span></div>
+      <div id="song"><strong>song:</strong> <span>-</span></div>
+    </div>
   </div>
   <!-- image ラフ画像なので差し替え必須 -->
   <img src="../img/image.png" id="image">
   <!-- ステージ -->
   <div id="stageContainer">
     <div id="stage"></div>
-    <div id="stageunder"></div>
+    <div id="stageUnder"></div>
   </div>
  <!-- ペンライト用空間?客席っぽい場所（サイズは調整必須） -->
-  <div id="field"></div>
+  <div id="field">
+    <div class="miniLight" id="miniLight1"></div>
+    <div class="miniLight" id="miniLight2"></div>
+    <div class="miniLight" id="miniLight3"></div>
+    <div class="miniLight" id="miniLight4"></div>
+    <div class="miniLight" id="miniLight5"></div>
+    <div class="miniLight" id="miniLight6"></div>
+    <div class="miniLight" id="miniLight7"></div>
+    <div class="miniLight" id="miniLight8"></div>
+    <div class="miniLight" id="miniLight9"></div>
+    <div class="miniLight" id="miniLight10"></div>
+    <div class="miniLight" id="miniLight11"></div>
+    <div class="miniLight" id="miniLight12"></div>
+    <div class="miniLight" id="miniLight13"></div>
+    <div class="miniLight" id="miniLight14"></div>
+  </div>
   <!-- 左右の歌詞表示 -->
-  <div class="ClassLilics"><p id="testcssLiricsLeft"><span id="text"></span></p></div>
-  <div class="ClassLilics"><p id="testcssLiricsRight"><span id="text"></span></p></div>
+  <div class="ClassLilics"><p id="cssLiricsLeft"><span id="text"></span></p></div>
+  <div class="ClassLilics"><p id="cssLiricsRight"><span id="text"></span></p></div>
   <!-- 設定など（要検討） -->
   <div id="Config">
     <div id="control" style="display: none">
@@ -41,49 +72,50 @@
       <button id="rewind" disabled>巻き戻し</button>
     </div>
     <div id="meta">
-      <strong>URL:</strong><input id="song_url" name="url" placeholder="https://www.youtube.com/watch?v=XSLhsjepelI"
-                                  type="text">
+      <strong>URL:</strong>
+      <input id="song_url" name="url" placeholder="https://www.youtube.com/watch?v=XSLhsjepelI"type="text">
       <button id="reload_button">変更</button>
       <button id="change_color">色変更</button>
     </div>
   </div>
-    <!-- JavaScript -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      // マウスストーカー関連の要素（任意で変更してください）
-      const mouseStalker = "#stkr";           // マウスストーカーになる要素を指定
-      const mouseTarget = ".stkr-target";     // リンクなどアクションを付けたい要素を指定
-      const mouseStalkerArea = window;        // マウスストーカーが機能する要素を指定
 
-      // 処理で使う変数たち
-      const stkrSize = parseInt($(mouseStalker).css("width").replace(/px/, ""));
-      const stkrPosX = parseInt($(mouseStalker).css("left").replace(/px/, ""));
-      const stkrPosY = parseInt($(mouseStalker).css("top").replace(/px/, ""));
-      const cssPosAjust = stkrPosX + (stkrSize / 2);
-      let scale = 1;
+  <!-- JavaScript -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // マウスストーカー関連の要素（任意で変更してください）
+    const mouseStalker = "#stkr";           // マウスストーカーになる要素を指定
+    const mouseTarget = ".stkr-target";     // リンクなどアクションを付けたい要素を指定
+    const mouseStalkerArea = window;        // マウスストーカーが機能する要素を指定
 
-      // 追従用の処理
-      $(mouseStalkerArea).hover(function(){
-        $(mouseStalkerArea).mousemove(function(e){
-          let x = e.clientX - cssPosAjust;
-          let y = e.clientY - cssPosAjust;
-          $(mouseStalker).css({
-            "transform": "translate(" + x  + "px," + y + "px) scale(" + scale + ")",
-          });
-        });
-      });
+    // 処理で使う変数たち
+    const stkrSize = parseInt($(mouseStalker).css("width").replace(/px/, ""));
+    const stkrPosX = parseInt($(mouseStalker).css("left").replace(/px/, ""));
+    const stkrPosY = parseInt($(mouseStalker).css("top").replace(/px/, ""));
+    const cssPosAjust = stkrPosX + (stkrSize / 2);
+    let scale = 1;
 
-      // リンクホバーの処理
-      $(mouseTarget).hover(function(e){
-        scale = 2;
+    // 追従用の処理
+    $(mouseStalkerArea).hover(function(){
+      $(mouseStalkerArea).mousemove(function(e){
         let x = e.clientX - cssPosAjust;
         let y = e.clientY - cssPosAjust;
         $(mouseStalker).css({
-          "transform": "translate(" + x + "px," + y + "px) scale(" + scale + ")",
+          "transform": "translate(" + x  + "px," + y + "px) scale(" + scale + ")",
         });
-      }, function(){
-        scale = 1;
       });
-    </script>
+    });
+
+    // リンクホバーの処理
+    $(mouseTarget).hover(function(e){
+      scale = 2;
+      let x = e.clientX - cssPosAjust;
+      let y = e.clientY - cssPosAjust;
+      $(mouseStalker).css({
+        "transform": "translate(" + x + "px," + y + "px) scale(" + scale + ")",
+      });
+    }, function(){
+      scale = 1;
+    });
+  </script>
 </body>
 </html>

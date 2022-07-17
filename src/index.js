@@ -59,8 +59,8 @@ const positionEl = document.querySelector("#position strong");
 const reloadBtn = document.querySelector("#reload_button");
 const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
-const phraseEl = document.querySelector("#testcssLiricsLeft"/*"#lyrics"*//*"#container p"*/);
-const phraseEl2 = document.querySelector("#testcssLiricsRight"/*"#lyrics2"*/);
+const phraseEl = document.querySelector("#cssLiricsLeft"/*"#lyrics"*//*"#container p"*/);
+const phraseEl2 = document.querySelector("#cssLiricsRight"/*"#lyrics2"*/);
 const changecolor = document.querySelector('#change_color')
 
 /**
@@ -79,7 +79,6 @@ function onAppReady(app) {
         /*player.video && */player.requestPlay();
       })
     );
-
     // 歌詞頭出しボタン
     jumpBtn.addEventListener(
       "click",
@@ -87,46 +86,27 @@ function onAppReady(app) {
         player.video &&
         player.requestMediaSeek(player.video.firstChar.startTime)
     );
-
     // 一時停止ボタン
     pauseBtn.addEventListener(
         "click",
         () => player.video && player.requestPause()
     );
-
     // 巻き戻しボタン
     rewindBtn.addEventListener(
         "click",
         () => player.video && player.requestMediaSeek(0)
     );
-
     // 楽曲再指定ボタン
     reloadBtn.addEventListener(
         "click",
         changeMedia
     );
-
     // 色変更ボタン
     changecolor.addEventListener(
         "click",
         changeColor
     )
-
-    document
-        .querySelector("#header a")
-        .setAttribute(
-            "href",
-            "https://developer.textalive.jp/app/run/?ta_app_url=https%3A%2F%2Ftextalivejp.github.io%2Ftextalive-app-basic%2F&ta_song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DygY2qObZv24"
-        );
-  } else {
-    document
-      .querySelector("#header a")
-      .setAttribute(
-        "href",
-        "https://textalivejp.github.io/textalive-app-basic/"
-      );
   }
-
   // 楽曲URLが指定されていなければ マジカルミライ 2020テーマ曲を読み込む
   if (!app.songUrl) {
     player.createFromSongUrl("https://www.youtube.com/watch?v=ZOTJgXBkJpc");
