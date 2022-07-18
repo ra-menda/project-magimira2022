@@ -1,7 +1,12 @@
 # あなたと繋いだ光
+
 ![image](https://user-images.githubusercontent.com/16377686/179467303-f18077b4-d6b9-4d6d-a2b1-38ce11016923.png)
 
 （ここにスクショと制作した思いを載せたいね）
+
+https://magimira2022.exertiongame.com
+
+masterブランチのものがここにホスティングされています。
 
 ## 概要
 
@@ -46,7 +51,7 @@ npm run build
 * 右下のURL欄にTextAlive対応楽曲のYoutube動画やニコニコ動画のURLを貼り付け、「変更」ボタンを押すと楽曲が切り替わります。
 
 <details>
-<summary>楽曲コンテスト受賞楽曲</summary>
+<summary>2022楽曲コンテスト受賞楽曲</summary>
 
 [『Loading Memories / せきこみごはん feat. 初音ミク』https://www.youtube.com/watch?v=ZOTJgXBkJpc](https://www.youtube.com/watch?v=ZOTJgXBkJpc)
 
@@ -65,13 +70,15 @@ npm run build
 
 * 「色変更」ボタンを押すと、手元のペンライトと会場のペンライトの色が変更されます。
 
-1. 初音ミク
-2. 鏡音レン
-3. 鏡音リン
-4. 巡音ルカ
-5. MEIKOさん
-6. KAITOさん
-7. 白色
+<span style="background-color:#130110E5">
+1. <span style="color: #46FF82 ">初音ミク</span>
+2. <span style="color: #ffc527">鏡音レン</span>
+3. <span style="color: #f58e2d">鏡音リン</span>
+4. <span style="color: #fc52ad">巡音ルカ</span>
+5. <span style="color: #ff4848">MEIKOさん</span>
+6. <span style="color: #4668ff">KAITOさん</span>
+7. <span style="color: #d6ffff">白色</span>
+</span>
 
 の順でペンライトの色が変更します。
 
