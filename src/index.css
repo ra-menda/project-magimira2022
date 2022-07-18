@@ -114,12 +114,13 @@ html.body{
 #monitor{
   position: absolute; top: 15%; left: 50%; margin-left: -13%;
   height: 25%; width: 26%;
-  min-height: 200px; min-width: 300px;
+ /* min-height: 200px; min-width: 300px;*/
   background-color:rgb(64, 65, 81);
   display: flex;
   border-style: solid;
   border-color: rgb(143, 186, 255);
   border-width: 3px;
+  overflow: hidden;
 }
 #media {
   position: absolute; height: auto; width: auto;
