@@ -247,6 +247,7 @@ function changeColor() {
       break;
   }
 
+  let i;
   for (i = 0; i < miniLightColorElements.length; i++) {
     miniLightColorElements[i].style.backgroundColor = miniLightColor;
   }
