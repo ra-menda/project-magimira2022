@@ -1,13 +1,9 @@
-html.body{
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-}
-
 /*ページ全体の背景色*/
 #black {
+  overflow: hidden;
+  margin: 0%;
   position: absolute;
-  height: 100%; width: 100%;
+  height: 99.1%; width: 99.6%;
   background-color: rgba(19, 1, 16, 0.9);
 }
 /*起動時のスタート*/
@@ -148,9 +144,9 @@ html.body{
   z-index: 90;
 }
 #Config{
-  position: absolute; bottom: 2%; right: 2%; height: 60px; width: 290px;
+  position: absolute; bottom: 0%; right: 0%; height: 60px; width: 320px;
   background-color: darkgray;
-  text-align: center; font-size:10px;
+  font-size:10px;
   z-index: 200;
 }
 #control {
