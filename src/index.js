@@ -236,27 +236,52 @@ function changeColor() {
 
   switch (color) {
     case 1:
+      // 初音ミク
       document.getElementById('light').style.background = "#46FF82";
       miniLightColor = "#46FF82";
       color++;
       break;
 
     case 2:
-      document.getElementById('light').style.background = "#ff0000";
-      miniLightColor = "#ff0000";
+      // 鏡音レン
+      document.getElementById('light').style.background = "#ffc527";
+      miniLightColor = "#ffc527";
       color++;
       break;
 
     case 3:
-      document.getElementById('light').style.background = "#F7FF00";
-      miniLightColor = "#F7FF00";
+      // 鏡音リン
+      document.getElementById('light').style.background = "#f58e2d";
+      miniLightColor = "#f58e2d";
       color++;
       break;
 
     case 4:
-      document.getElementById('light').style.background = "#00F6FF";
-      miniLightColor = "#00F6FF";
-      color = 1;
+      // 巡音ルカ
+      document.getElementById('light').style.background = "#fc52ad";
+      miniLightColor = "#fc52ad";
+      color++;
+      break;
+
+    case 5:
+      // MEIKOさん
+      document.getElementById('light').style.background = "#ff4848";
+      miniLightColor = "#ff4848";
+      color++;
+      break;
+
+    case 6:
+      // KAITOさん
+      document.getElementById('light').style.background = "#4668ff";
+      miniLightColor = "#4668ff";
+      color++;
+      break;
+
+    case 7:
+      // 白
+      document.getElementById('light').style.background = "#d6ffff";
+      miniLightColor = "#d6ffff";
+      color=1;
       break;
   }
 
