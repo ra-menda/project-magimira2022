@@ -1,12 +1,7 @@
-html.body{
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  margin: 0%;
-}
-
 /*ページ全体の背景色*/
 #black {
+  overflow: hidden;
+  margin: 0%;
   position: absolute;
   height: 99.1%; width: 99.6%;
   background-color: rgba(19, 1, 16, 0.9);
