@@ -1,39 +1,80 @@
-# TextAlive App API basic example
+# あなたと繋いだ光
 
-API チュートリアル「1. 開発の始め方」のサンプルコードです。
-発声中の歌詞を単語単位で表示します。
-また、このアプリが TextAlive ホストと接続されていなければ再生コントロールを表示します。
+（ここにスクショと制作した思いを載せたいね）
 
-TextAlive ホストと接続された状態をテストするには [TextAlive App Debugger](https://developer.textalive.jp/app/run/?ta_app_url=https%3A%2F%2Ftextalivejp.github.io%2Ftextalive-app-basic%2F&ta_song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DygY2qObZv24) のページにアクセスしてください。
+## 概要
 
-- API チュートリアル「1. 開発の始め方」: https://developer.textalive.jp/app/
-- サンプルコードのデモページ: https://textalivejp.github.io/textalive-app-basic/
+* TextAliveAppAPIを利用して楽曲に合わせた演出を行うWebアプリケーションです。
+* ペンライトを実際に動かすことができます。
+* ペンライトの色はマジカルミライ2021年のペンライトを参考にしています。
 
-**English version available in [README.en.md](./README.en.md).**
+## 利用方法
 
-## 違う楽曲で試すには
+### 準備
 
-TextAlive App API で開発されたWebアプリケーションは、（特定の楽曲向けに作り込んでいない限り）URLのクエリパラメタで `ta_song_url={楽曲のURL}` を指定すると異なる楽曲で演出を試せます。
-
-- [ブレス・ユア・ブレス by 和田たけあき feat. 初音ミク](https://textalivejp.github.io/textalive-app-basic/?ta_song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Da-Nf3QUFkOU)
-- [グリーンライツ・セレナーデ by Omoi feat. 初音ミク](https://textalivejp.github.io/textalive-app-basic/?ta_song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXSLhsjepelI)
-
-## 開発
-
-[Node.js](https://nodejs.org/) をインストールしている環境で以下のコマンドを実行すると、開発用サーバが起動します。
+* [Node.js](https://nodejs.org/) をインストールしている環境で以下のコマンドを実行すると、開発用サーバが起動します。
 
 ```sh
+git clone https://github.com/ra-menda/project-magimira2022.git
+cd project-magimira2022/
 npm install
+```
+
+### 開発用サーバ起動
+
+* 以下のコマンドで開発用サーバが起動します。
+
+```sh
 npm run dev
 ```
 
-## ビルド
+### ビルド
 
-以下のコマンドで `docs` 以下にビルド済みファイルが生成されます。 [サンプルコードのデモページ](https://textalivejp.github.io/textalive-app-basic/) は [GitHub Pages](https://pages.github.com/) で、このリポジトリの `docs` 以下のファイルが提供されています。
+* 以下のコマンドで `docs` 以下にビルド済みファイルが生成されます。
 
 ```sh
 npm run build
 ```
+
+## 操作方法
+
+### 楽曲変更方法
+
+* デフォルト起動時は[『Loading Memories / せきこみごはん feat. 初音ミク』](https://www.youtube.com/watch?v=ZOTJgXBkJpc)が流れるようになっています。
+* URLにクエリパラメータ`ta_song_url={楽曲URL}`をつけることで好きな楽曲で楽しめます。
+* 右下のURL欄にTextAlive対応楽曲のYoutube動画やニコニコ動画のURLを貼り付け、「変更」ボタンを押すと楽曲が切り替わります。
+
+<details>
+<summary>楽曲コンテスト受賞楽曲</summary>
+
+[『Loading Memories / せきこみごはん feat. 初音ミク』https://www.youtube.com/watch?v=ZOTJgXBkJpc](https://www.youtube.com/watch?v=ZOTJgXBkJpc)
+
+[『青に溶けた風船 / 初音ミク』https://piapro.jp/t/9cSd/20220205030039](https://piapro.jp/t/9cSd/20220205030039)
+
+[『歌の欠片と / MEIKO』https://www.youtube.com/watch?v=CkIy0PdUGjk](https://www.youtube.com/watch?v=CkIy0PdUGjk)
+
+[『未完のストーリー / 初音ミク』https://www.youtube.com/watch?v=GSt0gPV2E9M](https://www.youtube.com/watch?v=GSt0gPV2E9M)
+
+[『Miku＆cat nap - みはるかす』https://www.youtube.com/watch?v=qVTavYjd9Ek](https://www.youtube.com/watch?v=qVTavYjd9Ek)
+
+[『201 - fear ft. hatsune miku』https://www.youtube.com/watch?v=ZK2rp1VdNy4](https://www.youtube.com/watch?v=ZK2rp1VdNy4)
+</details>
+
+### ペンライトの色変更方法
+
+* 「色変更」ボタンを押すと、手元のペンライトと会場のペンライトの色が変更されます。
+
+1. 初音ミク
+2. 鏡音レン
+3. 鏡音リン
+4. 巡音ルカ
+5. MEIKOさん
+6. KAITOさん
+7. 白色
+
+の順でペンライトの色が変更します。
+
+---
 
 ## TextAlive App API
 
@@ -43,5 +84,11 @@ TextAlive App API は、音楽に合わせてタイミングよく歌詞が動�
 
 TextAlive App API について詳しくはWebサイト [TextAlive for Developers](https://developer.textalive.jp/) をご覧ください。
 
+## クレジット
+
+* WebPage Development : [ラーメン](https://twitter.com/ramenda) , Ocean , おわたん
+* Illust : [いとこん](https://twitter.com/itokon71)
+* Special Thanks : まぶちゃん , [ExertionGame](https://twitter.com/ExertionGame)
+
 ---
-https://github.com/TextAliveJp/textalive-app-basic
+https://github.com/ra-menda/project-magimira2022
