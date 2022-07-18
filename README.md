@@ -94,7 +94,7 @@ TextAlive App API について詳しくはWebサイト [TextAlive for Developers
 
 ## クレジット
 
-* WebPage Development : [ラーメン](https://twitter.com/ramenda) , Ocean , おわたん
+* WebPage Development : [ラーメン](https://twitter.com/ramenda) , Ocean , [おわたん](https://twitter.com/owatan1341)
 * Illust : [いとこん](https://twitter.com/itokon71)
 * Special Thanks : まぶちゃん , [ExertionGame](https://twitter.com/ExertionGame)
 
