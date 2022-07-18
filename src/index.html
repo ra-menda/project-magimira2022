@@ -7,17 +7,21 @@
     <script src="./index.js" type="module"></script>
 </head>
 <body id="black">
-  <div id="overlay"><button class="play" disabled>再生</button></div>
-  <!-- ペンライト -->
-  <div id="stkr">
-    <div id="light"></div>
-    <div id="cross"></div>
-    <div id="grip"></div>
-  </div>
+<div id="overlay">
+  <div id="artist"><strong>artist:</strong> <span>-</span></div>
+  <div id="song"><strong>song:</strong> <span>-</span></div>
+  <button class="play" disabled>再生</button>
+</div>
+<!-- ペンライト -->
+<div id="stkr">
+  <div id="light"></div>
+  <div id="cross"></div>
+  <div id="grip"></div>
+</div>
 
-  <div id="sparkingWhite"></div>
-  <div id="sparkingArea">
-    <div class="sparking sparkingPositionCenter" id="sparkingLeft1"></div>
+<div id="sparkingWhite"></div>
+<div id="sparkingArea">
+  <div class="sparking sparkingPositionCenter" id="sparkingLeft1"></div>
     <div class="sparking sparkingPositionCenter" id="sparkingLeft2"></div>
     <div class="sparking sparkingPositionCenter" id="sparkingLeft3"></div>
     <div class="sparking sparkingPositionRight" id="sparkingLeft4"></div>
@@ -33,9 +37,6 @@
   <!-- モニター -->
   <div id="monitor">
       <div id="media"></div>
-      <div id="header"><a></a></div>
-      <div id="artist"><strong>artist:</strong> <span>-</span></div>
-      <div id="song"><strong>song:</strong> <span>-</span></div>
   </div>
   <img src = "../img/miku03.png" id= "image" class="keyframe3 animation">  
   <img src = "../img/miku02.png" id= "speaker"> 
