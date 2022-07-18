@@ -223,7 +223,7 @@ function changeColor() {
 
   switch (color) {
     case 1:
-      // ネギ
+      // 初音ミク
       document.getElementById('light').style.background = "#46FF82";
       miniLightColor = "#46FF82";
       color++;
@@ -244,16 +244,16 @@ function changeColor() {
       break;
 
     case 4:
-      // MEIKOさん
-      document.getElementById('light').style.background = "#CB213C";
-      miniLightColor = "#CB213C";
+      // 巡音ルカ
+      document.getElementById('light').style.background = "#C89697";
+      miniLightColor = "#C89697";
       color++;
       break;
 
     case 5:
-      // 巡音ルカ
-      document.getElementById('light').style.background = "#C89697";
-      miniLightColor = "#C89697";
+      // MEIKOさん
+      document.getElementById('light').style.background = "#CB213C";
+      miniLightColor = "#CB213C";
       color++;
       break;
 
