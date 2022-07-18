@@ -1,14 +1,45 @@
 import {Player} from "textalive-app-api";
 
+// TextAlive Player を作る
+const player = new Player({
+  app: {
+    token: "1HJzpsZ11CfoUPrr",
+  },
+  mediaElement: document.querySelector("#media"),
+});
+
 // 歌詞を交互にする
 var isRight = true;
 var oldphrase = "";
 
+// BPM周りの変数
+var before_bpm = 0;
+var adjustment = 16;
+
+// 色管理利用
+var color = 2;
+
+// ボタン周り
+const playBtns = document.querySelectorAll(".play");
+const jumpBtn = document.querySelector("#jump");
+const pauseBtn = document.querySelector("#pause");
+const rewindBtn = document.querySelector("#rewind");
+const reloadBtn = document.querySelector("#reload_button");
+const artistSpan = document.querySelector("#artist span");
+const songSpan = document.querySelector("#song span");
+const phraseEl = document.querySelector("#cssLiricsLeft");
+const phraseEl2 = document.querySelector("#cssLiricsRight");
+const changecolor = document.querySelector('#change_color');
+
 
 // スクロール禁止（実装中）
-window.onload = function() {
-  document.addEventListener('touchmove', function(e){e.preventDefault()}, { passive: false });
-  document.addEventListener('mousewheel', function(e){e.preventDefault()}, { passive: false });
+window.onload = function () {
+  document.addEventListener('touchmove', function (e) {
+    e.preventDefault()
+  }, {passive: false});
+  document.addEventListener('mousewheel', function (e) {
+    e.preventDefault()
+  }, {passive: false});
 }
 
 // 単語が発声されていたら #text に表示する
@@ -27,14 +58,6 @@ function animatePhrase(now, unit) {
   }
 }
 
-// TextAlive Player を作る
-const player = new Player({
-  app: {
-    token: "1HJzpsZ11CfoUPrr",
-  },
-  mediaElement: document.querySelector("#media"),
-});
-
 // TextAlive Player のイベントリスナを登録する
 player.addListener({
   onAppReady,
@@ -43,20 +66,8 @@ player.addListener({
   onPlay,
   onPause,
   onStop,
-  onTimeUpdate,
-  onAppMediaChange
+  onTimeUpdate
 });
-
-const playBtns = document.querySelectorAll(".play");
-const jumpBtn = document.querySelector("#jump");
-const pauseBtn = document.querySelector("#pause");
-const rewindBtn = document.querySelector("#rewind");
-const reloadBtn = document.querySelector("#reload_button");
-const artistSpan = document.querySelector("#artist span");
-const songSpan = document.querySelector("#song span");
-const phraseEl = document.querySelector("#cssLiricsLeft");
-const phraseEl2 = document.querySelector("#cssLiricsRight");
-const changecolor = document.querySelector('#change_color');
 
 /**
  * TextAlive App が初期化されたときに呼ばれる
@@ -134,18 +145,15 @@ function onVideoReady(v) {
   document.querySelector("#overlay").style.visibility = "visible";
 }
 
-var before_1 = 0;
-var adjustment = 16;
-
 function onTimeUpdate(position) {
   const duration = player.findBeat(position).duration;
   const bpm = 1000 / duration * 60
  // BPM差が10以上であればdurationを更新する
- if(Math.abs(bpm - before_1) > 16) {
-    document.getElementById('image').style.animationDuration = (duration* adjustment).toString() + "ms";
-    document.getElementById('speaker').style.animationDuration = (duration* adjustment).toString() + "ms";
+  if (Math.abs(bpm - before_bpm) > 16) {
+    document.getElementById('image').style.animationDuration = (duration * adjustment).toString() + "ms";
+    document.getElementById('speaker').style.animationDuration = (duration * adjustment).toString() + "ms";
   }
-  before_1 = bpm;
+  before_bpm = bpm;
 }
 
 /**
@@ -179,7 +187,7 @@ function onPause() {
   isRight = !isRight;
   document.getElementById('image').style.animationDuration = "0s";
   document.getElementById('speaker').style.animationDuration = "0s";
-  before_1 = 0;
+  before_bpm = 0;
 }
 
 function onStop() {
@@ -189,7 +197,7 @@ function onStop() {
   isRight = !isRight;
   document.getElementById('image').style.animationDuration = "0s";
   document.getElementById('speaker').style.animationDuration = "0s";
-  before_1 = 0;
+  before_bpm = 0;
 }
 
 // 楽曲変更する場合に呼ばれるメソッド
@@ -200,17 +208,10 @@ function changeMedia() {
   }
 }
 
-function onAppMediaChange(songURL) {
-  alert(songURL);
-}
-
-// 色管理利用
-var color = 2;
-
 // 色変更
 function changeColor() {
   let miniLightColor;
-// 'miniLight'Classの配列が格納される
+  // 'miniLight'Classの配列が格納される
   const miniLightColorElements = document.getElementsByClassName('miniLight');
 
   switch (color) {
@@ -264,8 +265,7 @@ function changeColor() {
       break;
   }
 
-  let i;
-  for (i = 0; i < miniLightColorElements.length; i++) {
+  for (let i = 0; i < miniLightColorElements.length; i++) {
     miniLightColorElements[i].style.backgroundColor = miniLightColor;
   }
 }
