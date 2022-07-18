@@ -1,18 +1,8 @@
-/**
- * TextAlive App API basic example
- * https://github.com/TextAliveJp/textalive-app-basic
- *
- * API チュートリアル「1. 開発の始め方」のサンプルコードです。
- * 発声中の歌詞を単語単位で表示します。
- * また、このアプリが TextAlive ホストと接続されていなければ再生コントロールを表示します。
- * https://developer.textalive.jp/app/
- */
-
 import {Player} from "textalive-app-api";
 
 // 歌詞を交互にする
 var isRight = true;
-var olophrase = "";
+var oldphrase = "";
 
 
 // スクロール禁止（実装中）
@@ -24,7 +14,7 @@ window.onload = function() {
 // 単語が発声されていたら #text に表示する
 function animatePhrase(now, unit) {
   if (unit.contains(now)) {
-    if (unit.text != olophrase) {
+    if (unit.text != oldphrase) {
       if (isRight) {
         phraseEl.textContent = unit.text;
         isRight = !isRight;
@@ -32,7 +22,7 @@ function animatePhrase(now, unit) {
         phraseEl2.textContent = unit.text;
         isRight = !isRight;
       }
-      olophrase = unit.text;
+      oldphrase = unit.text;
     }
   }
 }
@@ -50,7 +40,6 @@ player.addListener({
   onAppReady,
   onVideoReady,
   onTimerReady,
-  onThrottledTimeUpdate,
   onPlay,
   onPause,
   onStop,
@@ -140,9 +129,9 @@ function onVideoReady(v) {
   // 曲変更後に歌詞文字を" "にするのと、大きい再生ボタンを再表示する。
   phraseEl.textContent = " ";
   phraseEl2.textContent = " ";
-  olophrase = ""
+  oldphrase = ""
   isRight = true;
-  // document.querySelector("#overlay").style.visibility = "visible";
+  document.querySelector("#overlay").style.visibility = "visible";
 }
 
 var before_1 = 0;
@@ -174,17 +163,7 @@ function onTimerReady(t) {
 
   // 歌詞がなければ歌詞頭出しボタンを無効にする
   jumpBtn.disabled = !player.video.firstPhrase;
-  player.video && player.requestPlay();
-}
-
-/**
- * 動画の再生位置が変更されたときに呼ばれる（あまりに頻繁な発火を防ぐため一定間隔に間引かれる）
- *
- * @param {number} position - https://developer.textalive.jp/packages/textalive-app-api/interfaces/playereventlistener.html#onthrottledtimeupdate
- */
-function onThrottledTimeUpdate(position) {
-  // 再生位置を表示する
-  //  positionEl.textContent = String(Math.floor(position));
+  // player.video && player.requestPlay();
 }
 
 // 再生が始まったら #overlay を非表示に
@@ -196,7 +175,7 @@ function onPlay() {
 function onPause() {
   phraseEl.textContent = " ";
   phraseEl2.textContent = " ";
-  olophrase = ""
+  oldphrase = ""
   isRight = !isRight;
   document.getElementById('image').style.animationDuration = "0s";
   document.getElementById('speaker').style.animationDuration = "0s";
@@ -206,7 +185,7 @@ function onPause() {
 function onStop() {
   phraseEl.textContent = " ";
   phraseEl2.textContent = " ";
-  olophrase = ""
+  oldphrase = ""
   isRight = !isRight;
   document.getElementById('image').style.animationDuration = "0s";
   document.getElementById('speaker').style.animationDuration = "0s";
@@ -215,7 +194,7 @@ function onStop() {
 
 // 楽曲変更する場合に呼ばれるメソッド
 function changeMedia() {
-  while (player.video && player.requestMediaSeek(0)) {
+  while (player.video && player.requestStop()) {
     player.createFromSongUrl(document.querySelector("#song_url").value);
     break;
   }
