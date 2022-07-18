@@ -1,99 +1,122 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>TextAlive App API | basic example</title>
+<head>
+    <title>test</title>
     <link rel="stylesheet" href="index.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="./index.js" type="module"></script>
-  </head>
-  <body>
-  <div id="stkr"></div>
-    <div id="overlay"><button class="play" disabled>再生</button></div>
-    <div id="container">
-      <div>
-        <p id="lyrics">
-          <span id="text"></span>
-        </p>
-      </div>
-      <div>
-        <p id="lyrics2">
-          <span id="text2"></span>
-        </p>
-      </div>
-      <img src = "../img/miku03.png" id= "image" class="keyframe3 animation">  
-      <img src = "../img/miku02.png" id= "speaker"> 
+</head>
+<body id="black">
+  <div id="overlay"><button class="play" disabled>再生</button></div>
+  <!-- ペンライト -->
+  <div id="stkr">
+    <div id="light"></div>
+    <div id="cross"></div>
+    <div id="grip"></div>
+  </div>
+
+  <div id="sparkingWhite"></div>
+  <div id="sparkingArea">
+    <div class="sparking sparkingPositionCenter" id="sparkingLeft1"></div>
+    <div class="sparking sparkingPositionCenter" id="sparkingLeft2"></div>
+    <div class="sparking sparkingPositionCenter" id="sparkingLeft3"></div>
+    <div class="sparking sparkingPositionRight" id="sparkingLeft4"></div>
+    <div class="sparking sparkingPositionRight" id="sparkingLeft5"></div>
+    <div class="sparking sparkingPositionRight" id="sparkingLeft6"></div>
+    <div class="sparking sparkingPositionCenter" id="sparkingRight1"></div>
+    <div class="sparking sparkingPositionCenter" id="sparkingRight2"></div>
+    <div class="sparking sparkingPositionCenter" id="sparkingRight3"></div>
+    <div class="sparking sparkingPositionLeft" id="sparkingRight4"></div>
+    <div class="sparking sparkingPositionLeft" id="sparkingRight5"></div>
+    <div class="sparking sparkingPositionLeft" id="sparkingRight6"></div>
+  </div>
+  <!-- モニター -->
+  <div id="monitor">
+      <div id="media"></div>
+      <div id="header"><a></a></div>
+      <div id="artist"><strong>artist:</strong> <span>-</span></div>
+      <div id="song"><strong>song:</strong> <span>-</span></div>
+  </div>
+  <img src = "../img/miku03.png" id= "image" class="keyframe3 animation">  
+  <img src = "../img/miku02.png" id= "speaker"> 
+  <!-- ステージ -->
+  <div id="stageContainer">
+    <div id="stage"></div>
+    <div id="stageUnder"></div>
+  </div>
+ <!-- ペンライト用空間?客席っぽい場所（サイズは調整必須） -->
+  <div id="field">
+    <div class="miniLight" id="miniLight1"></div>
+    <div class="miniLight" id="miniLight2"></div>
+    <div class="miniLight" id="miniLight3"></div>
+    <div class="miniLight" id="miniLight4"></div>
+    <div class="miniLight" id="miniLight5"></div>
+    <div class="miniLight" id="miniLight6"></div>
+    <div class="miniLight" id="miniLight7"></div>
+    <div class="miniLight" id="miniLight8"></div>
+    <div class="miniLight" id="miniLight9"></div>
+    <div class="miniLight" id="miniLight10"></div>
+    <div class="miniLight" id="miniLight11"></div>
+    <div class="miniLight" id="miniLight12"></div>
+    <div class="miniLight" id="miniLight13"></div>
+    <div class="miniLight" id="miniLight14"></div>
+  </div>
+  <!-- 左右の歌詞表示 -->
+  <div class="ClassLilics"><p id="cssLiricsLeft"><span id="text"></span></p></div>
+  <div class="ClassLilics"><p id="cssLiricsRight"><span id="text"></span></p></div>
+  <!-- 設定など（要検討） -->
+  <div id="Config">
+    <div id="control" style="display: none">
+      <button class="play" disabled>再生</button>
+      <button id="jump" disabled>歌詞頭出し</button>
+      <button id="pause" disabled>一時停止</button>
+      <button id="rewind" disabled>巻き戻し</button>
     </div>
-    <div id="media"></div>
-    <div id="header">
-      <div id="meta">
-        <strong>URL:</strong><input id="song_url" name="url" placeholder="https://www.youtube.com/watch?v=XSLhsjepelI"
-                                    type="text">
-        <button id="reload_button">変更</button>
-        <button id="change_color">色変更</button>
-        <div id="artist"><strong>artist:</strong> <span>-</span></div>
-        <div id="song"><strong>song:</strong> <span>-</span></div>
-      </div>
-      <ul>
-        <li>発声中の歌詞テキストがあれば表示されます</li>
-        <li>
-          <a>TextAlive ホストの有無</a>により再生コントロールの表示状態が切り替わります
-        </li>
-      </ul>
-      ビートの情報<br>
-      index：<span id="beat_index"></span><br>
-      duration[ms]：<span id="beat_duration"></span><br>
-      beat：<span id="beat_1"></span><br>
-      prev:<span id="prev"></span><br>
-    <br>
+    <div id="meta">
+      <strong>URL:</strong>
+      <input id="song_url" name="url" placeholder="https://www.youtube.com/watch?v=XSLhsjepelI"type="text">
+      <button id="reload_button">変更</button>
+      <button id="change_color">色変更</button>
     </div>
-    <div id="footer">
-      <p>
-        <span id="position"><strong>-</strong> [ms]</span>
-      </p>
-      <div id="control" style="display: none">
-        <button class="play" disabled>再生</button>
-        <button id="jump" disabled>歌詞頭出し</button>
-        <button id="pause" disabled>一時停止</button>
-        <button id="rewind" disabled>巻き戻し</button>
-      </div>
-    </div>
+  </div>
 
-    <!-- JavaScript -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      // マウスストーカー関連の要素（任意で変更してください）
-      const mouseStalker = "#stkr";           // マウスストーカーになる要素を指定
-      const mouseTarget = ".stkr-target";     // リンクなどアクションを付けたい要素を指定
-      const mouseStalkerArea = window;        // マウスストーカーが機能する要素を指定
+  <!-- JavaScript -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // マウスストーカー関連の要素（任意で変更してください）
+    const mouseStalker = "#stkr";           // マウスストーカーになる要素を指定
+    const mouseTarget = ".stkr-target";     // リンクなどアクションを付けたい要素を指定
+    const mouseStalkerArea = window;        // マウスストーカーが機能する要素を指定
 
-      // 処理で使う変数たち
-      const stkrSize = parseInt($(mouseStalker).css("width").replace(/px/, ""));
-      const stkrPosX = parseInt($(mouseStalker).css("left").replace(/px/, ""));
-      const stkrPosY = parseInt($(mouseStalker).css("top").replace(/px/, ""));
-      const cssPosAjust = stkrPosX + (stkrSize / 2);
-      let scale = 1;
+    // 処理で使う変数たち
+    const stkrSize = parseInt($(mouseStalker).css("width").replace(/px/, ""));
+    const stkrPosX = parseInt($(mouseStalker).css("left").replace(/px/, ""));
+    const stkrPosY = parseInt($(mouseStalker).css("top").replace(/px/, ""));
+    const cssPosAjust = stkrPosX + (stkrSize / 2);
+    let scale = 1;
 
-      // 追従用の処理
-      $(mouseStalkerArea).hover(function(){
-        $(mouseStalkerArea).mousemove(function(e){
-          let x = e.clientX - cssPosAjust;
-          let y = e.clientY - cssPosAjust;
-          $(mouseStalker).css({
-            "transform": "translate(" + x + "px," + y + "px) scale(" + scale + ")",
-          });
-        });
-      });
-
-      // リンクホバーの処理
-      $(mouseTarget).hover(function(e){
-        scale = 2;
+    // 追従用の処理
+    $(mouseStalkerArea).hover(function(){
+      $(mouseStalkerArea).mousemove(function(e){
         let x = e.clientX - cssPosAjust;
         let y = e.clientY - cssPosAjust;
         $(mouseStalker).css({
           "transform": "translate(" + x + "px," + y + "px) scale(" + scale + ")",
         });
-      }, function(){
-        scale = 1;
       });
-    </script>
-  </body>
+    });
+
+    // リンクホバーの処理
+    $(mouseTarget).hover(function(e){
+      scale = 2;
+      let x = e.clientX - cssPosAjust;
+      let y = e.clientY - cssPosAjust;
+      $(mouseStalker).css({
+        "transform": "translate(" + x + "px," + y + "px) scale(" + scale + ")",
+      });
+    }, function(){
+      scale = 1;
+    });
+  </script>
+</body>
 </html>
