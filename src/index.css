@@ -61,7 +61,7 @@ html.body{
   position: fixed; top: 70%; left:50%; width: 40px; height: 370px;
   transition: 0s;
   transition-timing-function: ease-out;
-  z-index: 5;
+  z-index: 80;
   cursor: none;
 }
 /*ペンライト用アニメーション*/
@@ -77,6 +77,9 @@ html.body{
   position: absolute;top: 0px; left: 5px; width: 30px; height: 150px;
   background-color: rgb(70, 255, 130);
   border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-width: 0.1px;
 }
 #cross{
   z-index: 2;
@@ -116,41 +119,33 @@ html.body{
   min-height: 200px; min-width: 300px;
   background-color:rgb(64, 65, 81);
   display: flex;
+  border-style: solid;
+  border-color: rgb(143, 186, 255);
+  border-width: 3px;
 }
 #media {
   position: absolute; height: auto; width: auto;
   top: 50%; margin-top: -89px; left: 50%; margin-left: -128px;
   background: rgb(152, 254, 213);
 }
-#monitorInner{
-  position: absolute; top: 5%; left: 3%; height: 90%; width: 94%;
-  background-color:lightblue;
-}
 .ClassLilics{
-  writing-mode: vertical-rl;
-  text-align: center; font-size: 42px; 
+  writing-mode: vertical-rl; text-align: center; font-size: 42px; 
   /*フォントをいい感じに選ぼう*/
-  font-weight: 200;
-  letter-spacing: 0.4ex;
+  font-weight: 200; letter-spacing: 0.4ex;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  height: 60%;
-  z-index: 90;
+  height: 60%; cursor: none;
 }
 #cssLiricsLeft{
   position: absolute; top: 3%; left: 7%;
-  color: azure;
-  z-index: 90;
+  color: azure; z-index: 90;
 }
 #cssLiricsRight{
   position: absolute; top: 3%; right: 7%;
-  color: azure;
-  z-index: 90;
+  color: azure; z-index: 90;
 }
 #Config{
-  position: absolute; bottom: 0%; right: 0%; height: 60px; width: 320px;
-  background-color: darkgray;
-  text-align: center; font-size:10px;
-  z-index: 200;
+  position: absolute; bottom: 0%; right: 0%; height: 60px; width: 320px; padding: 2px;
+  background-color: darkgray; text-align: center; font-size:10px; z-index: 200;
 }
 #control {
   padding: 2px;
@@ -159,9 +154,19 @@ html.body{
   padding: 2px;
 }
 .miniLight{
-  z-index: 3; position: absolute; width: 25px; height: 100px;
+  position: absolute; top: 0%; left:0%; width: 25px; height: 100px;
   background-color: rgb(70, 255, 130);
   border-radius: 10px;
+}
+.miniLightframe{
+  z-index: 3; position: absolute; width: 25px; height: 350px;
+  animation-name: minilightRotate; animation-duration: 3s;
+  animation-iteration-count: infinite; animation-timing-function: ease-in-out;
+}
+@keyframes minilightRotate{
+  0%{ transform: rotate(15deg);}
+  50%{ transform: rotate(40deg);}
+  100%{ transform: rotate(15deg);}
 }
 #miniLight1{ top: 20%; left: 5%; transform: rotate(40deg);}
 #miniLight2{ top: 35%; left: 20%; transform: rotate(40deg);}
@@ -183,81 +188,28 @@ html.body{
   z-index: 20; overflow: hidden;
 }
 .sparking{
-  position: absolute; top: 0%;
-  margin-top: -5%; height: 10%; width: 140%;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  position: absolute; top: 0%; margin-top: -5%; height: 10%; width: 140%;
+  animation-iteration-count: infinite; animation-timing-function: ease-in-out; cursor: none;
 }
-.sparkingPositionCenter{
-  left: 50%; margin-left: -70%;
-}
-.sparkingPositionLeft{
-  left: 15%;  margin-left: -70%;
-}
-.sparkingPositionRight{
-  right: 15%;  margin-right: -70%;
-}
+.sparkingPositionCenter{ left: 50%; margin-left: -70%;}
+.sparkingPositionLeft{ left: 15%;  margin-left: -70%;}
+.sparkingPositionRight{ right: 15%;  margin-right: -70%;}
 #sparkingWhite{
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  margin-top: -5%;
-  margin-left: -15%;
-  height: 15%;
-  width: 30%;
-  background-color: rgb(247, 239, 212,0.7);
-  border-radius: 50%;
-  z-index: 50;
+  position: absolute; top: 0%; left: 50%; margin-top: -5%; margin-left: -15%; height: 15%; width: 30%;
+  background-color: rgb(247, 239, 212,0.7); border-radius: 50%; z-index: 50;
 }
-#sparkingLeft1{
-  background-color:rgba(255, 116, 179, 0.7);
-  animation-name: sparkingRotateLeft1; animation-duration: 3s;
-}
-#sparkingLeft2{
-  background-color:rgba(152, 98, 202, 0.7);
-  animation-name: sparkingRotateLeft2; animation-duration: 4s;
-}
-#sparkingLeft3{
-  background-color:rgba(57, 57, 255, 0.7);
-  animation-name: sparkingRotateLeft3; animation-duration: 5s;
-}
-#sparkingLeft4{
-  background-color:rgba(255, 116, 179, 0.5);
-  animation-name: sparkingRotateLeft4; animation-duration: 4s;
-}
-#sparkingLeft5{
-  background-color:rgba(152, 98, 202, 0.5);
-  animation-name: sparkingRotateLeft5; animation-duration: 4s;
-}
-#sparkingLeft6{
-  background-color:rgba(57, 57, 255, 0.5);
-  animation-name: sparkingRotateLeft6; animation-duration: 4s;
-}
-#sparkingRight1{
-  background-color:rgba(255, 116, 179, 0.7);
-  animation-name: sparkingRotateRight1; animation-duration: 5s;
-}
-#sparkingRight2{
-  background-color:rgba(152, 98, 202, 0.7);
-
-  animation-name: sparkingRotateRight2; animation-duration: 4s;
-}
-#sparkingRight3{
-  background-color:rgba(57, 57, 255, 0.7);
-  animation-name: sparkingRotateRight3; animation-duration: 3s;
-}
-#sparkingRight4{
-  background-color:rgba(255, 116, 179, 0.5);
-  animation-name: sparkingRotateRight4; animation-duration: 4s;
-}
-#sparkingRight5{
-  background-color:rgba(152, 98, 202, 0.5);
-  animation-name: sparkingRotateRight5; animation-duration: 4s;
-}
-#sparkingRight6{
-  background-color:rgba(57, 57, 255, 0.5);
-  animation-name: sparkingRotateRight6; animation-duration: 4s;
-}
+#sparkingLeft1{ background-color:rgba(255, 0, 115, 0.5);  animation-name: sparkingRotateLeft1;  animation-duration: 3s;}
+#sparkingLeft2{ background-color:rgba(132, 0, 255, 0.5);   animation-name: sparkingRotateLeft2;  animation-duration: 4s;}
+#sparkingLeft3{ background-color:rgba(57, 57, 255, 0.5);    animation-name: sparkingRotateLeft3;  animation-duration: 5s;}
+#sparkingLeft4{ background-color:rgba(255, 0, 115, 0.5);  animation-name: sparkingRotateLeft4;  animation-duration: 4s;}
+#sparkingLeft5{ background-color:rgba(132, 0, 255, 0.5);   animation-name: sparkingRotateLeft5;  animation-duration: 4s;}
+#sparkingLeft6{ background-color:rgba(57, 57, 255, 0.5);    animation-name: sparkingRotateLeft6;  animation-duration: 4s;}
+#sparkingRight1{ background-color:rgba(255, 0, 115, 0.5); animation-name: sparkingRotateRight1; animation-duration: 5s;}
+#sparkingRight2{ background-color:rgba(132, 0, 255, 0.5);  animation-name: sparkingRotateRight2; animation-duration: 4s;}
+#sparkingRight3{ background-color:rgba(57, 57, 255, 0.5);   animation-name: sparkingRotateRight3; animation-duration: 3s;}
+#sparkingRight4{ background-color:rgba(255, 0, 115, 0.5); animation-name: sparkingRotateRight4; animation-duration: 4s;}
+#sparkingRight5{ background-color:rgba(132, 0, 255, 0.5);  animation-name: sparkingRotateRight5; animation-duration: 4s;}
+#sparkingRight6{ background-color:rgba(57, 57, 255, 0.5);   animation-name: sparkingRotateRight6; animation-duration: 4s;}
 @keyframes sparkingRotateLeft1{
   0%{transform: rotate(-10deg);}
   50%{transform: rotate(-25deg);}
@@ -319,7 +271,98 @@ html.body{
   100%{transform: rotate(60deg);}
 }
 .stageLight{
-  height: 5%;
-  width: 5%;
-  border-radius: 50%;
+  height: 5%; width: 5%; border-radius: 50%;
 }
+.backLight{
+ position: absolute; height: 5%; width: 3%; 
+ background-color: rgb(249, 248, 234); border-radius: 20%;
+}
+#backLightLeft1{ top: 15%; left: 32%;}
+#backLightLeft2{ top: 21%; left: 32%;}
+#backLightLeft3{ top: 27%; left: 32%;}
+#backLightLeft4{ top: 15%; left: 28.5%;}
+#backLightLeft5{ top: 21%; left: 28.5%;}
+#backLightLeft6{ top: 27%; left: 28.5%;}
+#backLightRight1{ top: 15%; right: 32%;}
+#backLightRight2{ top: 21%; right: 32%;}
+#backLightRight3{ top: 27%; right: 32%;}
+#backLightRight4{ top: 15%; right: 28.5%;}
+#backLightRight5{ top: 21%; right: 28.5%;}
+#backLightRight6{ top: 27%; right: 28.5%;}
+.backLightStand{
+  position: absolute; width: 1.05%; z-index: 2;
+}
+#backLightStandLeft1{
+  top: 20%; left: 25%; height: 20%;
+  background-color: rgb(49, 118, 255);
+}
+#backLightStandLeft2{
+  top: 20%; left: 23%; height: 30%;
+  background-color: hsl(310, 100%, 55%);
+}
+#backLightStandLeft3{
+  top: 15%; left: 19%; height: 30%;
+  background-color: rgb(49, 118, 255);
+}
+#backLightStandLeft4{
+  top: 15%; left: 17%; height: 40%;
+  background-color: hsl(310, 100%, 55%);
+}
+#backLightStandLeft5{
+  top: 10%; left: 13%; height: 40%;
+  background-color: rgb(49, 118, 255);
+}
+#backLightStandLeft6{
+  top: 10%; left: 11%; height: 50%;
+  background-color: hsl(310, 100%, 55%);
+}
+#backLightStandRight1{
+  top: 20%; right: 25%; height: 20%;
+  background-color: rgb(49, 118, 255);
+}
+#backLightStandRight2{
+  top: 20%; right: 23%; height: 30%;
+  background-color: hsl(310, 100%, 55%);
+}
+#backLightStandRight3{
+  top: 15%; right: 20%; height: 30%;
+  background-color: rgb(49, 118, 255);
+}
+#backLightStandRight4{
+  top: 15%; right: 18%; height: 40%;
+  background-color: hsl(310, 100%, 55%);
+}
+#backLightStandRight5{
+  top: 10%; right: 13%; height: 40%;
+  background-color: rgb(49, 118, 255);
+}
+#backLightStandRight6{
+  top: 10%; right: 11%; height:50%;
+  background-color: hsl(310, 100%, 55%);
+}
+.backLightStandWhite{
+  position: absolute; height: 5%; width: 3%;
+  background-color: rgb(249, 248, 234); border-radius: 50%;
+}
+#backLightStandWhiteLeft1{ top: 13%; left: 23%;}
+#backLightStandWhiteLeft2{ top: 8%; left: 17%;}
+#backLightStandWhiteLeft3{ top: 3%; left: 11%;}
+#backLightStandWhiteRight1{ top: 13%; right: 23%;}
+#backLightStandWhiteRight2{ top: 8%; right: 17%;}
+#backLightStandWhiteRight3{ top: 3%; right: 11%;}
+.backLightGreen{
+  position: absolute; height: 3%; width: 1.5%;
+  background-color: rgb(70, 253, 64);
+  border-radius: 50%;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-width: 1px;
+}
+#backLightGreenLeft1{ top: 7%; left: 46.5%;}
+#backLightGreenLeft2{ top: 8%; left: 43.5%;}
+#backLightGreenLeft3{ top: 9%; left: 40.5%;}
+#backLightGreenLeft4{ top: 10%; left: 37.5%;}
+#backLightGreenRight1{ top: 7%; right: 46.5%;}
+#backLightGreenRight2{ top: 8%; right: 43.5%;}
+#backLightGreenRight3{ top: 9%; right: 40.5%;}
+#backLightGreenRight4{ top: 10%; right: 37.5%;}
