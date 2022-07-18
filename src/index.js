@@ -14,6 +14,13 @@ import {Player} from "textalive-app-api";
 var isRight = true;
 var olophrase = "";
 
+
+// スクロール禁止（実装中）
+window.onload = function() {
+  document.addEventListener('touchmove', function(e){e.preventDefault()}, { passive: false });
+  document.addEventListener('mousewheel', function(e){e.preventDefault()}, { passive: false });
+}
+
 // 単語が発声されていたら #text に表示する
 function animatePhrase(now, unit) {
   if (unit.contains(now)) {
@@ -61,7 +68,6 @@ const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#cssLiricsLeft");
 const phraseEl2 = document.querySelector("#cssLiricsRight");
 const changecolor = document.querySelector('#change_color');
-
 
 /**
  * TextAlive App が初期化されたときに呼ばれる
@@ -130,6 +136,7 @@ function onVideoReady(v) {
     p.animate = animatePhrase;
     p = p.next;
   }
+
   // 曲変更後に歌詞文字を" "にするのと、大きい再生ボタンを再表示する。
   phraseEl.textContent = " ";
   phraseEl2.textContent = " ";
@@ -191,6 +198,9 @@ function onPause() {
   phraseEl2.textContent = " ";
   olophrase = ""
   isRight = !isRight;
+  document.getElementById('image').style.animationDuration = "0s";
+  document.getElementById('speaker').style.animationDuration = "0s";
+  before_1 = 0;
 }
 
 function onStop() {
@@ -198,6 +208,9 @@ function onStop() {
   phraseEl2.textContent = " ";
   olophrase = ""
   isRight = !isRight;
+  document.getElementById('image').style.animationDuration = "0s";
+  document.getElementById('speaker').style.animationDuration = "0s";
+  before_1 = 0;
 }
 
 // 楽曲変更する場合に呼ばれるメソッド
@@ -272,6 +285,7 @@ function changeColor() {
       break;
   }
 
+  let i;
   for (i = 0; i < miniLightColorElements.length; i++) {
     miniLightColorElements[i].style.backgroundColor = miniLightColor;
   }
