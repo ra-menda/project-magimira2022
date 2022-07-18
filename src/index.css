@@ -209,7 +209,7 @@ html.body{
   position: absolute; bottom: 2%; right: 2%; height: 60px; width: 290px;
   background-color: darkgray;
   text-align: center; font-size:10px;
-  z-index: 50;
+  z-index: 200;
 }
 #control {
   padding: 2px;
