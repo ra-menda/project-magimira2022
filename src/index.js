@@ -14,6 +14,13 @@ import {Player} from "textalive-app-api";
 var isRight = true;
 var olophrase = "";
 
+
+// スクロール禁止（実装中）
+window.onload = function() {
+  document.addEventListener('touchmove', function(e){e.preventDefault()}, { passive: false });
+  document.addEventListener('mousewheel', function(e){e.preventDefault()}, { passive: false });
+}
+
 // 単語が発声されていたら #text に表示する
 function animatePhrase(now, unit) {
   if (unit.contains(now)) {

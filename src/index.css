@@ -1,3 +1,9 @@
+html.body{
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
 /*ページ全体の背景色*/
 #black {
   position: absolute;
@@ -100,22 +106,11 @@
       transform: translate(200px, 50px) ;
     }
   }
-#media {
-  position: absolute; right: 10px; bottom: 10px; padding: 4px;
-  background: rgba(0,0,0,0.2);
-}
+
+
 /*用途不明*/
 #header {
   position: absolute; left: 0; top: 0;
-}
-
-/*用途不明*/
-#footer {
-  position: absolute; left: 0; bottom: 0;
-}
-/*用途不明*/
-#footer > p {
-  margin-left: 10px;
 }
 
 /* マウスストーカー*/
@@ -155,26 +150,36 @@
 }
 /*ステージ全体のサイズと位置を定義*/
 #stageContainer{
-  position: absolute; top: 45%; left: 15%; height: 25%; width: 70%;
-  /*background-color: aqua;*/
+  position: absolute; top: 50%; left: 50%; margin-left: -35%; height: 25%; width: 70%;
   z-index: 2;
 }
 #stage{
-  position:absolute; top:0%; left:0%; height: 85%; width:100%;
+  position:absolute; top:0%; left:50%; margin-left: -50%; height: 85%; width:100%;
   box-sizing: border-box; border-bottom: 150px solid #ccc;
   border-left: 100px solid transparent; border-right: 100px solid transparent;
 }
 #stageUnder{
-  position: absolute; top:85%; left:0%; height: 15%; width: 100%;
+  position: absolute; top:85%; left:50%; margin-left: -50%; height: 15%; width: 100%;
   background-color:slategrey;
 }
 #field{
   position: absolute; top: 50%; left: 0%; height: 50%; width: 100%;
   background-color: rgba(23, 6, 50, 0.5);
+  overflow: hidden;
 }
 #monitor{
-  position: absolute; top: 15%; left: 30%; height: 25%; width: 40%;
+  position: absolute; top: 15%; left: 37%; height: 25%; width: 26%;
+  min-height: 200px; min-width: 300px;
   background-color:darkslategray;
+  display: flex;
+}
+#media {
+  position: absolute;
+  height: auto;
+  width: auto;
+  top: 50%; margin-top: -89px;
+  left: 50%; margin-left: -128px;
+  background: rgba(0,0,0,0.2);
 }
 #monitorInner{
   position: absolute; top: 5%; left: 3%; height: 90%; width: 94%;
@@ -189,37 +194,6 @@
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   height: 60%;
   z-index: 90;
-}
-/*歌詞*/
-#lyrics {
-  position: absolute; top: 15%; left: 50%;
-  font-size: 3.2em;
-  writing-mode: vertical-rl;
-  animation: infinite; animation-name: sing; animation-duration: 7s;
-}
-/*アニメーション調整必須*/
-@keyframes sing{
-  0%{transrateX: 0%; transrateY: 0%; scale: 100%;}
-  100%{transrateX: -10px; transrateY: -5px; scale: 200%;}
-}
-#lyrics2{
-  position: absolute; top: 15%; right: 50%;
-  font-size: 3.2em; writing-mode: vertical-rl;
-  animation: infinite; animation-name: sing2; animation-duration: 7s;
-}
-/*アニメーション調整必須*/
-@keyframes sing2{
-  0%{
-    /*transrateX: 0%;
-    transrateY: 0%;*/
-    top: 10%;
-    scale: 100%;
-  }
-  100%{
-    top:15%;
-    translateY: -50%;
-    scale: 150%;
-  }
 }
 #cssLiricsLeft{
   position: absolute; top: 3%; left: 7%;
@@ -271,119 +245,132 @@
 #miniLight12{ top: 50%; left: 70%; transform: rotate(40deg);}
 #miniLight13{ top: 60%; left: 85%; transform: rotate(40deg);}
 #miniLight14{ top: 75%; left: 15%; transform: rotate(40deg);}
-.sparkring{
+#sparkingArea{
   position: absolute;
-  top: 0%;
-  left: 0%;
-  height: 50%;
-  width: 100%;
-  z-index: 1;
+  top: 0%; left: 0%; height: 60%; width: 100%;
+  z-index: 20; overflow: hidden;
 }
-#sparkringLeft1{
-  position: absolute;
-  top: 50%;
-  right: 51%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(-32deg);
-  background-color:deeppink;
+.sparking{
+  position: absolute; top: 0%;
+  margin-top: -5%; height: 10%; width: 140%;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
-#sparkringLeft2{
-  position: absolute;
-  top: 40%;
-  right: 50%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(-28deg);
-  background-color: blueviolet;
+.sparkingPositionCenter{
+  left: 50%; margin-left: -70%;
 }
-#sparkringLeft3{
-  position: absolute;
-  top: 30%;
-  right: 49%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(-24deg);
-  background-color:blue;
+.sparkingPositionLeft{
+  left: 15%;  margin-left: -70%;
 }
-#sparkringLeft4{
-  position: absolute;
-  top: 20%;
-  right: 48%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(-20deg);
-  background-color: deeppink;
+.sparkingPositionRight{
+  right: 15%;  margin-right: -70%;
 }
-#sparkringLeft5{
-  position: absolute;
-  top: 10%;
-  right: 47%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(-16deg);
-  background-color:blueviolet;
+#sparkingLeft1{
+  background-color:rgba(255, 116, 179, 0.7);
+  animation-name: sparkingRotateLeft1; animation-duration: 3s;
 }
-#sparkringLeft6{
-  position: absolute;
-  top: 0%;
-  right: 46%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(-12deg);
-  background-color: blue;
+#sparkingLeft2{
+  background-color:rgba(152, 98, 202, 0.7);
+  animation-name: sparkingRotateLeft2; animation-duration: 4s;
 }
-#sparkringRight1{
-  position: absolute;
-  top: 50%;
-  left: 51%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(32deg);
-  background-color:deeppink;
+#sparkingLeft3{
+  background-color:rgba(57, 57, 255, 0.7);
+  animation-name: sparkingRotateLeft3; animation-duration: 5s;
 }
-#sparkringRight2{
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(28deg);
-  background-color: blueviolet;
+#sparkingLeft4{
+  background-color:rgba(255, 116, 179, 0.5);
+  animation-name: sparkingRotateLeft4; animation-duration: 4s;
 }
-#sparkringRight3{
-  position: absolute;
-  top: 30%;
-  left: 49%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(24deg);
-  background-color:blue;
+#sparkingLeft5{
+  background-color:rgba(152, 98, 202, 0.5);
+  animation-name: sparkingRotateLeft5; animation-duration: 4s;
 }
-#sparkringRight4{
-  position: absolute;
-  top: 20%;
-  left: 48%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(20deg);
-  background-color: deeppink;
+#sparkingLeft6{
+  background-color:rgba(57, 57, 255, 0.5);
+  animation-name: sparkingRotateLeft6; animation-duration: 4s;
 }
-#sparkringRight5{
-  position: absolute;
-  top: 10%;
-  left: 47%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(16deg);
-  background-color:blueviolet;
+#sparkingRight1{
+  background-color:rgba(255, 116, 179, 0.7);
+  animation-name: sparkingRotateRight1; animation-duration: 5s;
 }
-#sparkringRight6{
-  position: absolute;
-  top: 0%;
-  left: 46%;
-  height: 5%;
-  width: 55%;
-  transform: rotate(12deg);
-  background-color: blue;
+#sparkingRight2{
+  background-color:rgba(152, 98, 202, 0.7);
+
+  animation-name: sparkingRotateRight2; animation-duration: 4s;
+}
+#sparkingRight3{
+  background-color:rgba(57, 57, 255, 0.7);
+  animation-name: sparkingRotateRight3; animation-duration: 3s;
+}
+#sparkingRight4{
+  background-color:rgba(255, 116, 179, 0.5);
+  animation-name: sparkingRotateRight4; animation-duration: 4s;
+}
+#sparkingRight5{
+  background-color:rgba(152, 98, 202, 0.5);
+  animation-name: sparkingRotateRight5; animation-duration: 4s;
+}
+#sparkingRight6{
+  background-color:rgba(57, 57, 255, 0.5);
+  animation-name: sparkingRotateRight6; animation-duration: 4s;
+}
+@keyframes sparkingRotateLeft1{
+  0%{transform: rotate(-10deg);}
+  50%{transform: rotate(-25deg);}
+  100%{transform: rotate(-10deg);}
+}
+@keyframes sparkingRotateLeft2{
+  0%{transform: rotate(-15deg);}
+  50%{transform: rotate(-30deg);}
+  100%{transform: rotate(-15deg);}
+}
+@keyframes sparkingRotateLeft3{
+  0%{transform: rotate(-20deg);}
+  50%{transform: rotate(-35deg);}
+  100%{transform: rotate(-20deg);}
+}
+@keyframes sparkingRotateLeft4{
+  0%{transform: rotate(-45deg);}
+  50%{transform: rotate(-60deg);}
+  100%{transform: rotate(-45deg);}
+}
+@keyframes sparkingRotateLeft5{
+  0%{transform: rotate(-55deg);}
+  50%{transform: rotate(-70deg);}
+  100%{transform: rotate(-55deg);}
+}
+@keyframes sparkingRotateLeft6{
+  0%{transform: rotate(-65deg);}
+  50%{transform: rotate(-80deg);}
+  100%{transform: rotate(-65deg);}
+}
+@keyframes sparkingRotateRight1{
+  0%{transform: rotate(10deg);}
+  50%{transform: rotate(25deg);}
+  100%{transform: rotate(10deg);}
+}
+@keyframes sparkingRotateRight2{
+  0%{transform: rotate(15deg);}
+  50%{transform: rotate(30deg);}
+  100%{transform: rotate(15deg);}
+}
+@keyframes sparkingRotateRight3{
+  0%{transform: rotate(20deg);}
+  50%{transform: rotate(35deg);}
+  100%{transform: rotate(20deg);}
+}
+@keyframes sparkingRotateRight4{
+  0%{transform: rotate(45deg);}
+  50%{transform: rotate(60deg);}
+  100%{transform: rotate(45deg);}
+}
+@keyframes sparkingRotateRight5{
+  0%{transform: rotate(55deg);}
+  50%{transform: rotate(70deg);}
+  100%{transform: rotate(55deg);}
+}
+@keyframes sparkingRotateRight6{
+  0%{transform: rotate(65deg);}
+  50%{transform: rotate(80deg);}
+  100%{transform: rotate(65deg);}
 }
