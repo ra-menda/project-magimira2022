@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="./index.js" type="module"></script>
 </head>
-<body id="black">
+<body id="black" oncontextmenu="return false;">
 <div id="overlay">
   <div id="artist"><strong>artist:</strong> <span>-</span></div>
   <div id="song"><strong>song:</strong> <span>-</span></div>
@@ -28,28 +28,28 @@
     <div class="sparking sparkingPositionRight" id="sparkingLeft5"></div>
     <div class="sparking sparkingPositionRight" id="sparkingLeft6"></div>
     <div class="sparking sparkingPositionCenter" id="sparkingRight1"></div>
-    <div class="sparking sparkingPositionCenter" id="sparkingRight2"></div>
-    <div class="sparking sparkingPositionCenter" id="sparkingRight3"></div>
-    <div class="sparking sparkingPositionLeft" id="sparkingRight4"></div>
-    <div class="sparking sparkingPositionLeft" id="sparkingRight5"></div>
-    <div class="sparking sparkingPositionLeft" id="sparkingRight6"></div>
-  </div>
-  <!-- モニター -->
-  <div id="monitor">
-      <div id="media"></div>
-  </div>
-  <img src = "../img/miku03.png" id= "image" class="keyframe3 animation">  
-  <img src = "../img/miku02.png" id= "speaker"> 
-  <!-- ステージ -->
-  <div id="stageContainer">
-    <div id="stage"></div>
-    <div id="stageUnder"></div>
-  </div>
- <!-- ペンライト用空間?客席っぽい場所（サイズは調整必須） -->
-  <div id="field">
-    <div class="miniLight" id="miniLight1"></div>
-    <div class="miniLight" id="miniLight2"></div>
-    <div class="miniLight" id="miniLight3"></div>
+  <div class="sparking sparkingPositionCenter" id="sparkingRight2"></div>
+  <div class="sparking sparkingPositionCenter" id="sparkingRight3"></div>
+  <div class="sparking sparkingPositionLeft" id="sparkingRight4"></div>
+  <div class="sparking sparkingPositionLeft" id="sparkingRight5"></div>
+  <div class="sparking sparkingPositionLeft" id="sparkingRight6"></div>
+</div>
+<!-- モニター -->
+<div id="monitor">
+  <div id="media"></div>
+</div>
+<img class="keyframe3 animation" id="image" src="../img/miku03.png">
+<img id="speaker" src="../img/miku02.png">
+<!-- ステージ -->
+<div id="stageContainer">
+  <div id="stage"></div>
+  <div id="stageUnder"></div>
+</div>
+<!-- ペンライト用空間?客席っぽい場所（サイズは調整必須） -->
+<div id="field">
+  <div class="miniLight" id="miniLight1"></div>
+  <div class="miniLight" id="miniLight2"></div>
+  <div class="miniLight" id="miniLight3"></div>
     <div class="miniLight" id="miniLight4"></div>
     <div class="miniLight" id="miniLight5"></div>
     <div class="miniLight" id="miniLight6"></div>
