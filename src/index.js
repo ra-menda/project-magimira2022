@@ -64,7 +64,6 @@ const phraseEl2 = document.querySelector("#cssLiricsRight");
 const changecolor = document.querySelector('#change_color')
 const bar = document.querySelector("#bar");
 
-
 /**
  * TextAlive App が初期化されたときに呼ばれる
  *
@@ -132,6 +131,7 @@ function onVideoReady(v) {
     p.animate = animatePhrase;
     p = p.next;
   }
+
   // 曲変更後に歌詞文字を" "にするのと、大きい再生ボタンを再表示する。
   phraseEl.textContent = " ";
   phraseEl2.textContent = " ";
@@ -197,6 +197,9 @@ function onPause() {
   phraseEl2.textContent = " ";
   olophrase = ""
   isRight = !isRight;
+  document.getElementById('image').style.animationDuration = "0s";
+  document.getElementById('speaker').style.animationDuration = "0s";
+  before_1 = 0;
 }
 
 function onStop() {
@@ -204,6 +207,9 @@ function onStop() {
   phraseEl2.textContent = " ";
   olophrase = ""
   isRight = !isRight;
+  document.getElementById('image').style.animationDuration = "0s";
+  document.getElementById('speaker').style.animationDuration = "0s";
+  before_1 = 0;
 }
 
 // 楽曲変更する場合に呼ばれるメソッド
