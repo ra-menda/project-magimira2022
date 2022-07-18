@@ -1,41 +1,4 @@
-/**
- * TextAlive App API basic example
- * https://github.com/TextAliveJp/textalive-app-basic
- *
- * API チュートリアル「1. 開発の始め方」のサンプルコードです。
- * 発声中の歌詞を単語単位で表示します。
- * また、このアプリが TextAlive ホストと接続されていなければ再生コントロールを表示します。
- * https://developer.textalive.jp/app/
- */
-
 import {Player} from "textalive-app-api";
-
-// 歌詞を交互にする
-var isRight = true;
-var olophrase = "";
-
-
-// スクロール禁止（実装中）
-window.onload = function() {
-  document.addEventListener('touchmove', function(e){e.preventDefault()}, { passive: false });
-  document.addEventListener('mousewheel', function(e){e.preventDefault()}, { passive: false });
-}
-
-// 単語が発声されていたら #text に表示する
-function animatePhrase(now, unit) {
-  if (unit.contains(now)) {
-    if (unit.text != olophrase) {
-      if (isRight) {
-        phraseEl.textContent = unit.text;
-        isRight = !isRight;
-      } else {
-        phraseEl2.textContent = unit.text;
-        isRight = !isRight;
-      }
-      olophrase = unit.text;
-    }
-  }
-}
 
 // TextAlive Player を作る
 const player = new Player({
@@ -45,19 +8,18 @@ const player = new Player({
   mediaElement: document.querySelector("#media"),
 });
 
-// TextAlive Player のイベントリスナを登録する
-player.addListener({
-  onAppReady,
-  onVideoReady,
-  onTimerReady,
-  onThrottledTimeUpdate,
-  onPlay,
-  onPause,
-  onStop,
-  onTimeUpdate,
-  onAppMediaChange
-});
+// 歌詞を交互にする
+var isRight = true;
+var oldphrase = "";
 
+// BPM周りの変数
+var before_bpm = 0;
+var adjustment = 16;
+
+// 色管理利用
+var color = 2;
+
+// ボタン周り
 const playBtns = document.querySelectorAll(".play");
 const jumpBtn = document.querySelector("#jump");
 const pauseBtn = document.querySelector("#pause");
@@ -68,6 +30,44 @@ const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#cssLiricsLeft");
 const phraseEl2 = document.querySelector("#cssLiricsRight");
 const changecolor = document.querySelector('#change_color');
+
+
+// スクロール禁止（実装中）
+window.onload = function () {
+  document.addEventListener('touchmove', function (e) {
+    e.preventDefault();
+  }, {passive: false});
+  document.addEventListener('mousewheel', function (e) {
+    e.preventDefault();
+  }, {passive: false});
+}
+
+// 単語が発声されていたら #text に表示する
+function animatePhrase(now, unit) {
+  if (unit.contains(now)) {
+    if (unit.text != oldphrase) {
+      if (isRight) {
+        phraseEl.textContent = unit.text;
+        isRight = !isRight;
+      } else {
+        phraseEl2.textContent = unit.text;
+        isRight = !isRight;
+      }
+      oldphrase = unit.text;
+    }
+  }
+}
+
+// TextAlive Player のイベントリスナを登録する
+player.addListener({
+  onAppReady,
+  onVideoReady,
+  onTimerReady,
+  onPlay,
+  onPause,
+  onStop,
+  onTimeUpdate
+});
 
 /**
  * TextAlive App が初期化されたときに呼ばれる
@@ -113,7 +113,7 @@ function onAppReady(app) {
         changeColor
     )
   }
-  // 楽曲URLが指定されていなければ マジカルミライ 2020テーマ曲を読み込む
+  // 楽曲URLが指定されていなければ マジカルミライ 2022グランプリ楽曲を読み込む
   if (!app.songUrl) {
     player.createFromSongUrl("https://www.youtube.com/watch?v=ZOTJgXBkJpc");
   }
@@ -137,26 +137,20 @@ function onVideoReady(v) {
     p = p.next;
   }
 
-  // 曲変更後に歌詞文字を" "にするのと、大きい再生ボタンを再表示する。
-  phraseEl.textContent = " ";
-  phraseEl2.textContent = " ";
-  olophrase = ""
-  isRight = true;
-  // document.querySelector("#overlay").style.visibility = "visible";
+  // 曲変更後に大きい再生ボタンを再表示する。
+  document.querySelector("#overlay").style.visibility = "visible";
 }
-
-var before_1 = 0;
-var adjustment = 16;
 
 function onTimeUpdate(position) {
   const duration = player.findBeat(position).duration;
   const bpm = 1000 / duration * 60
- // BPM差が10以上であればdurationを更新する
- if(Math.abs(bpm - before_1) > 16) {
-    document.getElementById('image').style.animationDuration = (duration* adjustment).toString() + "ms";
-    document.getElementById('speaker').style.animationDuration = (duration* adjustment).toString() + "ms";
+
+  // BPM差が10以上であればdurationを更新する
+  if (Math.abs(bpm - before_bpm) > 16) {
+    document.getElementById('image').style.animationDuration = (duration * adjustment).toString() + "ms";
+    document.getElementById('speaker').style.animationDuration = (duration * adjustment).toString() + "ms";
   }
-  before_1 = bpm;
+  before_bpm = bpm;
 }
 
 /**
@@ -174,17 +168,6 @@ function onTimerReady(t) {
 
   // 歌詞がなければ歌詞頭出しボタンを無効にする
   jumpBtn.disabled = !player.video.firstPhrase;
-  player.video && player.requestPlay();
-}
-
-/**
- * 動画の再生位置が変更されたときに呼ばれる（あまりに頻繁な発火を防ぐため一定間隔に間引かれる）
- *
- * @param {number} position - https://developer.textalive.jp/packages/textalive-app-api/interfaces/playereventlistener.html#onthrottledtimeupdate
- */
-function onThrottledTimeUpdate(position) {
-  // 再生位置を表示する
-  //  positionEl.textContent = String(Math.floor(position));
 }
 
 // 再生が始まったら #overlay を非表示に
@@ -194,74 +177,87 @@ function onPlay() {
 
 // 再生が一時停止・停止したら歌詞表示をリセット
 function onPause() {
-  phraseEl.textContent = " ";
-  phraseEl2.textContent = " ";
-  olophrase = ""
-  isRight = !isRight;
-  document.getElementById('image').style.animationDuration = "0s";
-  document.getElementById('speaker').style.animationDuration = "0s";
-  before_1 = 0;
+  elementReset();
 }
 
 function onStop() {
+  elementReset();
+}
+
+function elementReset() {
   phraseEl.textContent = " ";
   phraseEl2.textContent = " ";
-  olophrase = ""
+  oldphrase = ""
   isRight = !isRight;
   document.getElementById('image').style.animationDuration = "0s";
   document.getElementById('speaker').style.animationDuration = "0s";
-  before_1 = 0;
+  before_bpm = 0;
 }
 
 // 楽曲変更する場合に呼ばれるメソッド
 function changeMedia() {
-  while (player.video && player.requestMediaSeek(0)) {
-    player.createFromSongUrl(document.querySelector("#song_url").value);
-    break;
-  }
+  player.requestStop();
+  player.createFromSongUrl(document.querySelector("#song_url").value);
 }
-
-function onAppMediaChange(songURL) {
-  alert(songURL);
-}
-
-// 色管理利用
-var color = 2;
 
 // 色変更
 function changeColor() {
   let miniLightColor;
-// 'miniLight'Classの配列が格納される
+  // 'miniLight'Classの配列が格納される
   const miniLightColorElements = document.getElementsByClassName('miniLight');
 
   switch (color) {
     case 1:
+      // 初音ミク
       document.getElementById('light').style.background = "#46FF82";
       miniLightColor = "#46FF82";
       color++;
       break;
 
     case 2:
-      document.getElementById('light').style.background = "#ff0000";
-      miniLightColor = "#ff0000";
+      // 鏡音レン
+      document.getElementById('light').style.background = "#ffc527";
+      miniLightColor = "#ffc527";
       color++;
       break;
 
     case 3:
-      document.getElementById('light').style.background = "#F7FF00";
-      miniLightColor = "#F7FF00";
+      // 鏡音リン
+      document.getElementById('light').style.background = "#f58e2d";
+      miniLightColor = "#f58e2d";
       color++;
       break;
 
     case 4:
-      document.getElementById('light').style.background = "#00F6FF";
-      miniLightColor = "#00F6FF";
-      color = 1;
+      // 巡音ルカ
+      document.getElementById('light').style.background = "#fc52ad";
+      miniLightColor = "#fc52ad";
+      color++;
+      break;
+
+    case 5:
+      // MEIKOさん
+      document.getElementById('light').style.background = "#ff4848";
+      miniLightColor = "#ff4848";
+      color++;
+      break;
+
+    case 6:
+      // KAITOさん
+      document.getElementById('light').style.background = "#4668ff";
+      miniLightColor = "#4668ff";
+      color++;
+      break;
+
+    case 7:
+      // 白
+      document.getElementById('light').style.background = "#d6ffff";
+      miniLightColor = "#d6ffff";
+      color=1;
       break;
   }
 
-  let i;
-  for (i = 0; i < miniLightColorElements.length; i++) {
+  for (let i = 0; i < miniLightColorElements.length; i++) {
     miniLightColorElements[i].style.backgroundColor = miniLightColor;
   }
 }

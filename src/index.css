@@ -1,12 +1,9 @@
-html.body{
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-}
 /*ページ全体の背景色*/
 #black {
+  overflow: hidden;
+  margin: 0%;
   position: absolute;
-  height: 99%; width: 99%;
+  height: 99.1%; width: 99.6%;
   background-color: rgb(19, 1, 16);
 }
 /*起動時のスタート*/
@@ -128,10 +125,9 @@ html.body{
   background: rgb(152, 254, 213);
 }
 .ClassLilics{
-  writing-mode: vertical-rl; text-align: center; font-size: 42px; 
-  /*フォントをいい感じに選ぼう*/
+  writing-mode: vertical-rl; text-align: center; font-size: 42px;
   font-weight: 200; letter-spacing: 0.4ex;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'DotGothic16', sans-serif;
   height: 60%; cursor: none;
   border-style: solid;
   border-color: rgb(0, 0, 0);
@@ -146,8 +142,10 @@ html.body{
   color: azure; z-index: 90;
 }
 #Config{
-  position: absolute; bottom: 0%; right: 0%; height: 60px; width: 320px; padding: 2px;
-  background-color: darkgray; text-align: center; font-size:10px; z-index: 200;
+  position: absolute; bottom: 0%; right: 0%; height: 60px; width: 320px;
+  background-color: darkgray;
+  font-size:10px;
+  z-index: 200;
 }
 #control {
   padding: 2px;
