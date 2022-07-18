@@ -1,4 +1,5 @@
 # あなたと繋いだ光
+![image](https://user-images.githubusercontent.com/16377686/179467303-f18077b4-d6b9-4d6d-a2b1-38ce11016923.png)
 
 （ここにスクショと制作した思いを載せたいね）
 
