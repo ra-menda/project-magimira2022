@@ -2,12 +2,13 @@ html.body{
   overflow: hidden;
   height: 100%;
   width: 100%;
+  margin: 0%;
 }
 
 /*ページ全体の背景色*/
 #black {
   position: absolute;
-  height: 100%; width: 100%;
+  height: 99.1%; width: 99.6%;
   background-color: rgba(19, 1, 16, 0.9);
 }
 /*起動時のスタート*/
@@ -94,6 +95,7 @@ html.body{
 #stageContainer{
   position: absolute; top: 50%; left: 50%; margin-left: -35%; height: 25%; width: 70%;
   z-index: 2;
+  /* background-color:rgb(3, 119, 235); */
 }
 #stage{
   position:absolute; top:0%; left:50%; margin-left: -50%; height: 85%; width:100%;
@@ -148,9 +150,9 @@ html.body{
   z-index: 90;
 }
 #Config{
-  position: absolute; bottom: 2%; right: 2%; height: 60px; width: 290px;
+  position: absolute; bottom: 0%; right: 0%; height: 60px; width: 320px;
   background-color: darkgray;
-  text-align: center; font-size:10px;
+  font-size:10px;
   z-index: 200;
 }
 #control {
