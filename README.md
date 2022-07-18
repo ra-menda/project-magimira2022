@@ -71,13 +71,13 @@ npm run build
 * 「色変更」ボタンを押すと、手元のペンライトと会場のペンライトの色が変更されます。
 
 <span style="background-color:#130110E5">
-1. <span style="color: #46FF82 ">初音ミク</span>
-2. <span style="color: #ffc527">鏡音レン</span>
-3. <span style="color: #f58e2d">鏡音リン</span>
-4. <span style="color: #fc52ad">巡音ルカ</span>
-5. <span style="color: #ff4848">MEIKOさん</span>
-6. <span style="color: #4668ff">KAITOさん</span>
-7. <span style="color: #d6ffff">白色</span>
+1. <span style="color: #46FF82 ">初音ミク</span><br>
+2. <span style="color: #ffc527">鏡音レン</span><br>
+3. <span style="color: #f58e2d">鏡音リン</span><br>
+4. <span style="color: #fc52ad">巡音ルカ</span><br>
+5. <span style="color: #ff4848">MEIKOさん</span><br>
+6. <span style="color: #4668ff">KAITOさん</span><br>
+7. <span style="color: #d6ffff">白色</span><br>
 </span>
 
 の順でペンライトの色が変更します。
