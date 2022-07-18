@@ -90,7 +90,6 @@
 #stageContainer{
   position: absolute; top: 50%; left: 50%; margin-left: -35%; height: 25%; width: 70%;
   z-index: 2;
-  /* background-color:rgb(3, 119, 235); */
 }
 #stage{
   position:absolute; top:0%; left:50%; margin-left: -50%; height: 85%; width:100%;
