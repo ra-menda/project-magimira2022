@@ -3,12 +3,11 @@ html.body{
   height: 100%;
   width: 100%;
 }
-
 /*ページ全体の背景色*/
 #black {
   position: absolute;
   height: 99%; width: 99%;
-  background-color: rgba(19, 1, 16, 0.9);
+  background-color: rgb(19, 1, 16);
 }
 /*起動時のスタート*/
 #overlay {
@@ -110,7 +109,6 @@ html.body{
 }
 #field{
   position: absolute; top: 50%; left: 0%; height: 50%; width: 100%;
-  background-color: rgba(23, 6, 50, 0.5);
   overflow: hidden;
 }
 #monitor{
@@ -134,13 +132,16 @@ html.body{
   font-weight: 200; letter-spacing: 0.4ex;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   height: 60%; cursor: none;
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  border-width: 1px;
 }
 #cssLiricsLeft{
-  position: absolute; top: 3%; left: 7%;
+  position: absolute; top: 3%; left: 1%;
   color: azure; z-index: 90;
 }
 #cssLiricsRight{
-  position: absolute; top: 3%; right: 7%;
+  position: absolute; top: 3%; right: 1%;
   color: azure; z-index: 90;
 }
 #Config{
@@ -198,18 +199,18 @@ html.body{
   position: absolute; top: 0%; left: 50%; margin-top: -5%; margin-left: -15%; height: 15%; width: 30%;
   background-color: rgb(247, 239, 212,0.7); border-radius: 50%; z-index: 50;
 }
-#sparkingLeft1{ background-color:rgba(255, 0, 115, 0.5);  animation-name: sparkingRotateLeft1;  animation-duration: 3s;}
-#sparkingLeft2{ background-color:rgba(132, 0, 255, 0.5);   animation-name: sparkingRotateLeft2;  animation-duration: 4s;}
-#sparkingLeft3{ background-color:rgba(57, 57, 255, 0.5);    animation-name: sparkingRotateLeft3;  animation-duration: 5s;}
-#sparkingLeft4{ background-color:rgba(255, 0, 115, 0.5);  animation-name: sparkingRotateLeft4;  animation-duration: 4s;}
-#sparkingLeft5{ background-color:rgba(132, 0, 255, 0.5);   animation-name: sparkingRotateLeft5;  animation-duration: 4s;}
-#sparkingLeft6{ background-color:rgba(57, 57, 255, 0.5);    animation-name: sparkingRotateLeft6;  animation-duration: 4s;}
-#sparkingRight1{ background-color:rgba(255, 0, 115, 0.5); animation-name: sparkingRotateRight1; animation-duration: 5s;}
-#sparkingRight2{ background-color:rgba(132, 0, 255, 0.5);  animation-name: sparkingRotateRight2; animation-duration: 4s;}
-#sparkingRight3{ background-color:rgba(57, 57, 255, 0.5);   animation-name: sparkingRotateRight3; animation-duration: 3s;}
-#sparkingRight4{ background-color:rgba(255, 0, 115, 0.5); animation-name: sparkingRotateRight4; animation-duration: 4s;}
-#sparkingRight5{ background-color:rgba(132, 0, 255, 0.5);  animation-name: sparkingRotateRight5; animation-duration: 4s;}
-#sparkingRight6{ background-color:rgba(57, 57, 255, 0.5);   animation-name: sparkingRotateRight6; animation-duration: 4s;}
+#sparkingLeft1{ background-color:rgba(255, 0, 115, 0.45);  animation-name: sparkingRotateLeft1;  animation-duration: 3s;}
+#sparkingLeft2{ background-color:rgba(132, 0, 255, 0.45);   animation-name: sparkingRotateLeft2;  animation-duration: 4s;}
+#sparkingLeft3{ background-color:rgba(57, 57, 255, 0.45);    animation-name: sparkingRotateLeft3;  animation-duration: 5s;}
+#sparkingLeft4{ background-color:rgba(255, 0, 115, 0.45);  animation-name: sparkingRotateLeft4;  animation-duration: 4s;}
+#sparkingLeft5{ background-color:rgba(132, 0, 255, 0.45);   animation-name: sparkingRotateLeft5;  animation-duration: 4s;}
+#sparkingLeft6{ background-color:rgba(57, 57, 255, 0.45);    animation-name: sparkingRotateLeft6;  animation-duration: 4s;}
+#sparkingRight1{ background-color:rgba(255, 0, 115, 0.45); animation-name: sparkingRotateRight1; animation-duration: 5s;}
+#sparkingRight2{ background-color:rgba(132, 0, 255, 0.45);  animation-name: sparkingRotateRight2; animation-duration: 4s;}
+#sparkingRight3{ background-color:rgba(57, 57, 255, 0.45);   animation-name: sparkingRotateRight3; animation-duration: 3s;}
+#sparkingRight4{ background-color:rgba(255, 0, 115, 0.45); animation-name: sparkingRotateRight4; animation-duration: 4s;}
+#sparkingRight5{ background-color:rgba(132, 0, 255, 0.45);  animation-name: sparkingRotateRight5; animation-duration: 4s;}
+#sparkingRight6{ background-color:rgba(57, 57, 255, 0.45);   animation-name: sparkingRotateRight6; animation-duration: 4s;}
 @keyframes sparkingRotateLeft1{
   0%{transform: rotate(-10deg);}
   50%{transform: rotate(-25deg);}
