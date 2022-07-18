@@ -231,51 +231,44 @@ function changeColor() {
 
     case 2:
       // 鏡音レン
-      document.getElementById('light').style.background = "#FCF5A7";
-      miniLightColor = "#FCF5A7";
+      document.getElementById('light').style.background = "#ffc527";
+      miniLightColor = "#ffc527";
       color++;
       break;
 
     case 3:
       // 鏡音リン
-      document.getElementById('light').style.background = "#FFD98C";
-      miniLightColor = "#FFD98C";
+      document.getElementById('light').style.background = "#f58e2d";
+      miniLightColor = "#f58e2d";
       color++;
       break;
 
     case 4:
       // 巡音ルカ
-      document.getElementById('light').style.background = "#C89697";
-      miniLightColor = "#C89697";
+      document.getElementById('light').style.background = "#fc52ad";
+      miniLightColor = "#fc52ad";
       color++;
       break;
 
     case 5:
       // MEIKOさん
-      document.getElementById('light').style.background = "#CB213C";
-      miniLightColor = "#CB213C";
+      document.getElementById('light').style.background = "#ff4848";
+      miniLightColor = "#ff4848";
       color++;
       break;
 
     case 6:
       // KAITOさん
-      document.getElementById('light').style.background = "#413A87";
-      miniLightColor = "#413A87";
+      document.getElementById('light').style.background = "#4668ff";
+      miniLightColor = "#4668ff";
       color++;
       break;
 
     case 7:
-      // 初音ミク
-      document.getElementById('light').style.background = "#86CECB";
-      miniLightColor = "#86CECB";
-      color++;
-      break;
-
-    case 8:
       // 白
-      document.getElementById('light').style.background = "#FFFFFF";
-      miniLightColor = "#FFFFFF";
-      color = 1;
+      document.getElementById('light').style.background = "#d6ffff";
+      miniLightColor = "#d6ffff";
+      color=1;
       break;
   }
 
