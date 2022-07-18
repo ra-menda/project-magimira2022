@@ -133,7 +133,7 @@ html.body{
   /*フォントをいい感じに選ぼう*/
   font-weight: 200;
   letter-spacing: 0.4ex;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'DotGothic16', sans-serif;
   height: 60%;
   z-index: 90;
 }
