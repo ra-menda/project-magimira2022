@@ -35,10 +35,10 @@ const changecolor = document.querySelector('#change_color');
 // スクロール禁止（実装中）
 window.onload = function () {
   document.addEventListener('touchmove', function (e) {
-    e.preventDefault()
+    e.preventDefault();
   }, {passive: false});
   document.addEventListener('mousewheel', function (e) {
-    e.preventDefault()
+    e.preventDefault();
   }, {passive: false});
 }
 
@@ -113,7 +113,7 @@ function onAppReady(app) {
         changeColor
     )
   }
-  // 楽曲URLが指定されていなければ マジカルミライ 2020テーマ曲を読み込む
+  // 楽曲URLが指定されていなければ マジカルミライ 2022グランプリ楽曲を読み込む
   if (!app.songUrl) {
     player.createFromSongUrl("https://www.youtube.com/watch?v=ZOTJgXBkJpc");
   }
@@ -137,18 +137,15 @@ function onVideoReady(v) {
     p = p.next;
   }
 
-  // 曲変更後に歌詞文字を" "にするのと、大きい再生ボタンを再表示する。
-  phraseEl.textContent = " ";
-  phraseEl2.textContent = " ";
-  oldphrase = ""
-  isRight = true;
+  // 曲変更後に大きい再生ボタンを再表示する。
   document.querySelector("#overlay").style.visibility = "visible";
 }
 
 function onTimeUpdate(position) {
   const duration = player.findBeat(position).duration;
   const bpm = 1000 / duration * 60
- // BPM差が10以上であればdurationを更新する
+
+  // BPM差が10以上であればdurationを更新する
   if (Math.abs(bpm - before_bpm) > 16) {
     document.getElementById('image').style.animationDuration = (duration * adjustment).toString() + "ms";
     document.getElementById('speaker').style.animationDuration = (duration * adjustment).toString() + "ms";
@@ -171,7 +168,6 @@ function onTimerReady(t) {
 
   // 歌詞がなければ歌詞頭出しボタンを無効にする
   jumpBtn.disabled = !player.video.firstPhrase;
-  // player.video && player.requestPlay();
 }
 
 // 再生が始まったら #overlay を非表示に
@@ -181,16 +177,14 @@ function onPlay() {
 
 // 再生が一時停止・停止したら歌詞表示をリセット
 function onPause() {
-  phraseEl.textContent = " ";
-  phraseEl2.textContent = " ";
-  oldphrase = ""
-  isRight = !isRight;
-  document.getElementById('image').style.animationDuration = "0s";
-  document.getElementById('speaker').style.animationDuration = "0s";
-  before_bpm = 0;
+  elementReset();
 }
 
 function onStop() {
+  elementReset();
+}
+
+function elementReset() {
   phraseEl.textContent = " ";
   phraseEl2.textContent = " ";
   oldphrase = ""
@@ -202,10 +196,8 @@ function onStop() {
 
 // 楽曲変更する場合に呼ばれるメソッド
 function changeMedia() {
-  while (player.video && player.requestStop()) {
-    player.createFromSongUrl(document.querySelector("#song_url").value);
-    break;
-  }
+  player.requestStop();
+  player.createFromSongUrl(document.querySelector("#song_url").value);
 }
 
 // 色変更
