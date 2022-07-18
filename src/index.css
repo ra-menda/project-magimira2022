@@ -8,7 +8,7 @@ html.body{
 #black {
   position: absolute;
   height: 100%; width: 100%;
-  background-color: rgba(0, 0, 12, 0.9);
+  background-color: rgba(19, 1, 16, 0.9);
 }
 /*起動時のスタート*/
 #overlay {
@@ -206,25 +206,16 @@ html.body{
   z-index: 90;
 }
 #Config{
-  position: absolute; bottom: 2%; right: 2%; height: 50px; width: 290px;
+  position: absolute; bottom: 2%; right: 2%; height: 60px; width: 290px;
   background-color: darkgray;
   text-align: center; font-size:10px;
   z-index: 50;
 }
-/*用途不明*/
 #control {
-  margin: 0px; padding: 2px;
-}
-/*用途不明*/
-#control > button {
-  margin-right: 2px;
-}
-/*用途不明*/
-#control > button:last-child {
-  margin-right: 0;
+  padding: 2px;
 }
 #meta {
-  margin: 0px; padding: 2px;
+  padding: 2px;
 }
 .miniLight{
   z-index: 3; position: absolute; width: 30px; height: 150px;
@@ -247,7 +238,7 @@ html.body{
 #miniLight14{ top: 75%; left: 15%; transform: rotate(40deg);}
 #sparkingArea{
   position: absolute;
-  top: 0%; left: 0%; height: 60%; width: 100%;
+  top: 0%; left: 0%; height: 65%; width: 100%;
   z-index: 20; overflow: hidden;
 }
 .sparking{
@@ -264,6 +255,18 @@ html.body{
 }
 .sparkingPositionRight{
   right: 15%;  margin-right: -70%;
+}
+#sparkingWhite{
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  margin-top: -5%;
+  margin-left: -15%;
+  height: 15%;
+  width: 30%;
+  background-color: rgb(247, 239, 212,0.7);
+  border-radius: 50%;
+  z-index: 50;
 }
 #sparkingLeft1{
   background-color:rgba(255, 116, 179, 0.7);
@@ -330,9 +333,9 @@ html.body{
   100%{transform: rotate(-20deg);}
 }
 @keyframes sparkingRotateLeft4{
-  0%{transform: rotate(-45deg);}
+  0%{transform: rotate(-50deg);}
   50%{transform: rotate(-60deg);}
-  100%{transform: rotate(-45deg);}
+  100%{transform: rotate(-50deg);}
 }
 @keyframes sparkingRotateLeft5{
   0%{transform: rotate(-55deg);}
@@ -340,9 +343,9 @@ html.body{
   100%{transform: rotate(-55deg);}
 }
 @keyframes sparkingRotateLeft6{
-  0%{transform: rotate(-65deg);}
+  0%{transform: rotate(-60deg);}
   50%{transform: rotate(-80deg);}
-  100%{transform: rotate(-65deg);}
+  100%{transform: rotate(-60deg);}
 }
 @keyframes sparkingRotateRight1{
   0%{transform: rotate(10deg);}
@@ -360,9 +363,9 @@ html.body{
   100%{transform: rotate(20deg);}
 }
 @keyframes sparkingRotateRight4{
-  0%{transform: rotate(45deg);}
+  0%{transform: rotate(50deg);}
   50%{transform: rotate(60deg);}
-  100%{transform: rotate(45deg);}
+  100%{transform: rotate(50deg);}
 }
 @keyframes sparkingRotateRight5{
   0%{transform: rotate(55deg);}
@@ -370,7 +373,7 @@ html.body{
   100%{transform: rotate(55deg);}
 }
 @keyframes sparkingRotateRight6{
-  0%{transform: rotate(65deg);}
+  0%{transform: rotate(60deg);}
   50%{transform: rotate(80deg);}
-  100%{transform: rotate(65deg);}
+  100%{transform: rotate(60deg);}
 }
