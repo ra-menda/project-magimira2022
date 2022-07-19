@@ -16,6 +16,9 @@
 h1{
   color: rgb(15, 93, 66);
 }
+#overlay .play:hover{
+  background-color: rgb(70, 255, 130);
+}
 #overlay .play {
   font-family: 'DotGothic16', sans-serif;
   position: absolute;
@@ -26,7 +29,8 @@ h1{
   width: 50vh;
   border-radius: 50%;
   font-size: larger;
-  background-color: rgb(70, 255, 130);
+  background-color: rgb(152, 254, 213);
+
 }
 
 #image{
@@ -137,7 +141,8 @@ h1{
   background: rgb(152, 254, 213);
 }
 .ClassLilics{
-  writing-mode: vertical-rl; text-align: center; font-size: 42px;
+  writing-mode: vertical-rl; text-align: center;
+  font-size: 5vh;
   font-weight: 200; letter-spacing: 0.4ex;
   font-family: 'DotGothic16', sans-serif;
   height: 60%; cursor: none;
