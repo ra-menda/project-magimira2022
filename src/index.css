@@ -204,12 +204,13 @@ h1{
   z-index: 20; overflow: hidden;
 }
 .sparking{
-  position: absolute; top: 0%; margin-top: -5%; height: 10%; width: 160%;
+  position: absolute; top: 0%; margin-top: -150vh; margin-left: -3vw;
+  height: 300vh; width: 6vw;
   animation-iteration-count: infinite; animation-timing-function: ease-in-out; cursor: none;
 }
-.sparkingPositionCenter{ left: 50%; margin-left: -80%;}
-.sparkingPositionLeft{ left: 15%;  margin-left: -80%;}
-.sparkingPositionRight{ right: 15%;  margin-right: -80%;}
+.sparkingPositionCenter{ left: 50%;}
+.sparkingPositionLeft{ left: 15%;}
+.sparkingPositionRight{ right: 15%;}
 #sparkingWhite{
   position: absolute; top: 0%; left: 50%; margin-top: -5%; margin-left: -15%; height: 15%; width: 30%;
   background-color: rgb(247, 239, 212,0.7); border-radius: 50%; z-index: 50;
@@ -227,64 +228,64 @@ h1{
 #sparkingRight5{ background-color:rgba(132, 0, 255, 0.45);  animation-name: sparkingRotateRight5; animation-duration: 4s;}
 #sparkingRight6{ background-color:rgba(57, 57, 255, 0.45);   animation-name: sparkingRotateRight6; animation-duration: 4s;}
 @keyframes sparkingRotateLeft1{
-  0%{transform: rotate(-10deg);}
-  50%{transform: rotate(-25deg);}
-  100%{transform: rotate(-10deg);}
+  0%{transform: rotate(-100deg);}
+  50%{transform: rotate(-115deg);}
+  100%{transform: rotate(-100deg);}
 }
 @keyframes sparkingRotateLeft2{
-  0%{transform: rotate(-15deg);}
-  50%{transform: rotate(-30deg);}
-  100%{transform: rotate(-15deg);}
+  0%{transform: rotate(-105deg);}
+  50%{transform: rotate(-120deg);}
+  100%{transform: rotate(-105deg);}
 }
 @keyframes sparkingRotateLeft3{
-  0%{transform: rotate(-20deg);}
-  50%{transform: rotate(-35deg);}
-  100%{transform: rotate(-20deg);}
+  0%{transform: rotate(-110deg);}
+  50%{transform: rotate(-125deg);}
+  100%{transform: rotate(-110deg);}
 }
 @keyframes sparkingRotateLeft4{
-  0%{transform: rotate(-50deg);}
-  50%{transform: rotate(-60deg);}
-  100%{transform: rotate(-50deg);}
+  0%{transform: rotate(-140deg);}
+  50%{transform: rotate(-150deg);}
+  100%{transform: rotate(-140deg);}
 }
 @keyframes sparkingRotateLeft5{
-  0%{transform: rotate(-55deg);}
-  50%{transform: rotate(-70deg);}
-  100%{transform: rotate(-55deg);}
+  0%{transform: rotate(-145deg);}
+  50%{transform: rotate(-160deg);}
+  100%{transform: rotate(-145deg);}
 }
 @keyframes sparkingRotateLeft6{
-  0%{transform: rotate(-60deg);}
-  50%{transform: rotate(-80deg);}
-  100%{transform: rotate(-60deg);}
+  0%{transform: rotate(-150deg);}
+  50%{transform: rotate(-170deg);}
+  100%{transform: rotate(-150deg);}
 }
 @keyframes sparkingRotateRight1{
-  0%{transform: rotate(10deg);}
-  50%{transform: rotate(25deg);}
-  100%{transform: rotate(10deg);}
+  0%{transform: rotate(100deg);}
+  50%{transform: rotate(115deg);}
+  100%{transform: rotate(100deg);}
 }
 @keyframes sparkingRotateRight2{
-  0%{transform: rotate(15deg);}
-  50%{transform: rotate(30deg);}
-  100%{transform: rotate(15deg);}
+  0%{transform: rotate(105deg);}
+  50%{transform: rotate(120deg);}
+  100%{transform: rotate(105deg);}
 }
 @keyframes sparkingRotateRight3{
-  0%{transform: rotate(20deg);}
-  50%{transform: rotate(35deg);}
-  100%{transform: rotate(20deg);}
+  0%{transform: rotate(110deg);}
+  50%{transform: rotate(125deg);}
+  100%{transform: rotate(110deg);}
 }
 @keyframes sparkingRotateRight4{
-  0%{transform: rotate(50deg);}
-  50%{transform: rotate(60deg);}
-  100%{transform: rotate(50deg);}
+  0%{transform: rotate(140deg);}
+  50%{transform: rotate(150deg);}
+  100%{transform: rotate(140deg);}
 }
 @keyframes sparkingRotateRight5{
-  0%{transform: rotate(55deg);}
-  50%{transform: rotate(70deg);}
-  100%{transform: rotate(55deg);}
+  0%{transform: rotate(145deg);}
+  50%{transform: rotate(160deg);}
+  100%{transform: rotate(145deg);}
 }
 @keyframes sparkingRotateRight6{
-  0%{transform: rotate(60deg);}
-  50%{transform: rotate(80deg);}
-  100%{transform: rotate(60deg);}
+  0%{transform: rotate(150deg);}
+  50%{transform: rotate(170deg);}
+  100%{transform: rotate(150deg);}
 }
 .stageLight{
   height: 5%; width: 5%; border-radius: 50%;
