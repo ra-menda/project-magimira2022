@@ -69,20 +69,22 @@ h1{
   }
 /* マウスストーカー*/
 #stkr{
-  /*animation:2s ease-in-out infinite rotation;*/
-  position: fixed; top: 70%; left:50%; width: 40px; height: 370px;
+  position: fixed; top: 70%; left:50%; width: 40px; height: 740px;
   transition: 0s;
   transition-timing-function: ease-out;
   z-index: 80;
   cursor: none;
 }
+#stkrframe{
+  position: absolute;
+  animation:3s ease-in-out infinite rotation;
+  height: 100%; width: 100%;
+}
 /*ペンライト用アニメーション*/
 @keyframes rotation{
-  0%{ transform:rotate(0); }
-  25%{ transform:rotate(45deg); }
-  50%{ transform:rotate(0); }
-  75%{ transform:rotate(-45deg); }
-  100%{ transform:rotate(0deg); }
+  0%{ transform:rotate(10deg); }
+  50%{ transform:rotate(40deg); }
+  100%{ transform:rotate(10deg); }
 }
 #light{
   z-index: 3;
@@ -105,7 +107,6 @@ h1{
   background-color: azure;
   border-radius: 10px;
 }
-/*ステージ全体のサイズと位置を定義*/
 #stageContainer{
   position: absolute; top: 50%; left: 50%; margin-left: -35%; height: 25%; width: 70%;
   z-index: 2;
