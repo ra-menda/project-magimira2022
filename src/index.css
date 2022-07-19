@@ -13,8 +13,20 @@
   display: flex; align-items: center; justify-content: center;
   z-index: 100;
 }
+h1{
+  color: rgb(15, 93, 66);
+}
 #overlay .play {
-  padding: 7em;
+  font-family: 'DotGothic16', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25vh;
+  height: 50vh;
+  width: 50vh;
+  border-radius: 50%;
+  font-size: larger;
+  background-color: rgb(70, 255, 130);
 }
 
 #image{
@@ -154,9 +166,9 @@
   padding: 2px;
 }
 .miniLight{
-  position: absolute; top: 0%; left:0%; width: 25px; height: 100px;
+  position: absolute; top: 0%; left:0%; width: 3.5vh; height: 13vh;
   background-color: rgb(70, 255, 130);
-  border-radius: 10px;
+  border-radius: 10vh;
 }
 .miniLightframe{
   z-index: 3; position: absolute; width: 25px; height: 350px;
