@@ -29,8 +29,8 @@ h1{
   width: 50vh;
   border-radius: 50%;
   font-size: larger;
-  background-color: rgb(152, 254, 213);
-
+  background-color: rgb(31, 124, 60);
+  border-style: none;
 }
 
 #image{
@@ -127,7 +127,6 @@ h1{
 #monitor{
   position: absolute; top: 15%; left: 50%; margin-left: -13%;
   height: 25%; width: 26%;
- /* min-height: 200px; min-width: 300px;*/
   background-color:rgb(64, 65, 81);
   display: flex;
   border-style: solid;
@@ -205,12 +204,12 @@ h1{
   z-index: 20; overflow: hidden;
 }
 .sparking{
-  position: absolute; top: 0%; margin-top: -5%; height: 10%; width: 140%;
+  position: absolute; top: 0%; margin-top: -5%; height: 10%; width: 160%;
   animation-iteration-count: infinite; animation-timing-function: ease-in-out; cursor: none;
 }
-.sparkingPositionCenter{ left: 50%; margin-left: -70%;}
-.sparkingPositionLeft{ left: 15%;  margin-left: -70%;}
-.sparkingPositionRight{ right: 15%;  margin-right: -70%;}
+.sparkingPositionCenter{ left: 50%; margin-left: -80%;}
+.sparkingPositionLeft{ left: 15%;  margin-left: -80%;}
+.sparkingPositionRight{ right: 15%;  margin-right: -80%;}
 #sparkingWhite{
   position: absolute; top: 0%; left: 50%; margin-top: -5%; margin-left: -15%; height: 15%; width: 30%;
   background-color: rgb(247, 239, 212,0.7); border-radius: 50%; z-index: 50;
