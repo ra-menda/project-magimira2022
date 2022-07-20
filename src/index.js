@@ -21,7 +21,6 @@ var color = 2;
 
 // ボタン周り
 const playBtns = document.querySelectorAll(".play");
-const jumpBtn = document.querySelector("#jump");
 const pauseBtn = document.querySelector("#pause");
 const rewindBtn = document.querySelector("#rewind");
 const reloadBtn = document.querySelector("#reload_button");
@@ -85,13 +84,6 @@ function onAppReady(app) {
         player.video && player.requestPlay();
       })
     );
-    // 歌詞頭出しボタン
-    jumpBtn.addEventListener(
-      "click",
-      () =>
-        player.video &&
-        player.requestMediaSeek(player.video.firstChar.startTime)
-    );
     // 一時停止ボタン
     pauseBtn.addEventListener(
         "click",
@@ -131,7 +123,6 @@ function onVideoReady(v) {
 
   // 定期的に呼ばれる各単語の "animate" 関数をセットする
   let p = player.video.firstPhrase;
-  jumpBtn.disabled = !p;
   while (p && p.next) {
     p.animate = animatePhrase;
     p = p.next;
@@ -165,9 +156,6 @@ function onTimerReady(t) {
       .querySelectorAll("button")
       .forEach((btn) => (btn.disabled = false));
   }
-
-  // 歌詞がなければ歌詞頭出しボタンを無効にする
-  jumpBtn.disabled = !player.video.firstPhrase;
 }
 
 // 再生が始まったら #overlay を非表示に
