@@ -9,7 +9,7 @@ const player = new Player({
 });
 
 // 歌詞を交互にする
-var isRight = true;
+var isRight = false;
 var oldphrase = "";
 
 // BPM周りの変数
@@ -29,9 +29,10 @@ const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#cssLiricsLeft");
 const phraseEl2 = document.querySelector("#cssLiricsRight");
 const displayChangeColor = document.querySelector('#stkr'); //画面クリックでも色変更できるように
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 
-// スクロール禁止（実装中）
+// スクロール禁止
 window.onload = function () {
   document.addEventListener('touchmove', function (e) {
     e.preventDefault();
@@ -92,7 +93,7 @@ function onAppReady(app) {
     // 巻き戻しボタン
     rewindBtn.addEventListener(
         "click",
-        () => player.video && player.requestMediaSeek(0)
+        rewind
     );
     // 楽曲再指定ボタン
     reloadBtn.addEventListener(
@@ -153,14 +154,21 @@ function onTimerReady(t) {
   // ボタンを有効化する
   if (!player.app.managed) {
     document
-      .querySelectorAll("button")
-      .forEach((btn) => (btn.disabled = false));
+        .querySelectorAll("button")
+        .forEach((btn) => (btn.disabled = false));
   }
 }
 
 // 再生が始まったら #overlay を非表示に
 function onPlay() {
   document.querySelector("#overlay").style.visibility = "hidden";
+}
+
+// 巻き戻しする際の処理
+async function rewind() {
+  player.requestMediaSeek(0);
+  await sleep(50);
+  elementReset();
 }
 
 // 再生が一時停止・停止したら歌詞表示をリセット
