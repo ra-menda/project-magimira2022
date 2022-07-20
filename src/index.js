@@ -21,7 +21,6 @@ var color = 2;
 
 // ボタン周り
 const playBtns = document.querySelectorAll(".play");
-const jumpBtn = document.querySelector("#jump");
 const pauseBtn = document.querySelector("#pause");
 const rewindBtn = document.querySelector("#rewind");
 const reloadBtn = document.querySelector("#reload_button");
@@ -29,7 +28,7 @@ const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#cssLiricsLeft");
 const phraseEl2 = document.querySelector("#cssLiricsRight");
-const changecolor = document.querySelector('#change_color');
+const displayChangeColor = document.querySelector('#stkr'); //画面クリックでも色変更できるように
 
 
 // スクロール禁止（実装中）
@@ -85,13 +84,6 @@ function onAppReady(app) {
         player.video && player.requestPlay();
       })
     );
-    // 歌詞頭出しボタン
-    jumpBtn.addEventListener(
-      "click",
-      () =>
-        player.video &&
-        player.requestMediaSeek(player.video.firstChar.startTime)
-    );
     // 一時停止ボタン
     pauseBtn.addEventListener(
         "click",
@@ -108,7 +100,7 @@ function onAppReady(app) {
         changeMedia
     );
     // 色変更ボタン
-    changecolor.addEventListener(
+    displayChangeColor.addEventListener(
         "click",
         changeColor
     )
@@ -131,7 +123,6 @@ function onVideoReady(v) {
 
   // 定期的に呼ばれる各単語の "animate" 関数をセットする
   let p = player.video.firstPhrase;
-  jumpBtn.disabled = !p;
   while (p && p.next) {
     p.animate = animatePhrase;
     p = p.next;
@@ -165,9 +156,6 @@ function onTimerReady(t) {
       .querySelectorAll("button")
       .forEach((btn) => (btn.disabled = false));
   }
-
-  // 歌詞がなければ歌詞頭出しボタンを無効にする
-  jumpBtn.disabled = !player.video.firstPhrase;
 }
 
 // 再生が始まったら #overlay を非表示に
@@ -187,7 +175,7 @@ function onStop() {
 function elementReset() {
   phraseEl.textContent = " ";
   phraseEl2.textContent = " ";
-  oldphrase = ""
+  oldphrase = "";
   isRight = !isRight;
   document.getElementById('image').style.animationDuration = "0s";
   document.getElementById('speaker').style.animationDuration = "0s";

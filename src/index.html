@@ -11,15 +11,25 @@
 </head>
 <body id="black" oncontextmenu="return false;">
 <div id="overlay">
-  <div id="artist"><strong>artist:</strong> <span>-</span></div>
-  <div id="song"><strong>song:</strong> <span>-</span></div>
-  <button class="play" disabled>再生</button>
+  <button class="play" id="start" disabled>
+    <h1>MUSIC START<br></h1>
+    <div id="artist">
+      <strong>*artist*</strong><br>
+      <span>-</span><br><br>
+    </div>
+    <div id="song">
+      <strong>*song*</strong><br>
+      <span>-</span><br>
+    </div>
+  </button>
 </div>
 <!-- ペンライト -->
 <div id="stkr">
-  <div id="light"></div>
-  <div id="cross"></div>
-  <div id="grip"></div>
+  <div id="stkrframe">
+    <div id="light"></div>
+    <div id="cross"></div>
+    <div id="grip"></div>
+  </div>
 </div>
 
 <div id="sparkingWhite"></div>
@@ -109,9 +119,8 @@
   <div class="ClassLilics"><p id="cssLiricsRight"><span id="text"></span></p></div>
   <!-- 設定など（要検討） -->
   <div id="Config">
-    <div id="control" style="display: none">
+    <div id="control">
       <button class="play" disabled>再生</button>
-      <button id="jump" disabled>歌詞頭出し</button>
       <button id="pause" disabled>一時停止</button>
       <button id="rewind" disabled>巻き戻し</button>
     </div>
@@ -119,7 +128,6 @@
       <strong>URL:</strong>
       <input id="song_url" name="url" placeholder="https://www.youtube.com/watch?v=XSLhsjepelI"type="text">
       <button id="reload_button">変更</button>
-      <button id="change_color">色変更</button>
     </div>
   </div>
 
