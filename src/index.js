@@ -187,7 +187,7 @@ function onStop() {
 function elementReset() {
   phraseEl.textContent = " ";
   phraseEl2.textContent = " ";
-  oldphrase = ""
+  oldphrase = "";
   isRight = !isRight;
   document.getElementById('image').style.animationDuration = "0s";
   document.getElementById('speaker').style.animationDuration = "0s";
@@ -202,6 +202,7 @@ function changeMedia() {
 
 // 色変更
 function changeColor() {
+  alert("hello world");
   let miniLightColor;
   // 'miniLight'Classの配列が格納される
   const miniLightColorElements = document.getElementsByClassName('miniLight');

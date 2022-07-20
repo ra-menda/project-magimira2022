@@ -11,7 +11,7 @@
 </head>
 <body id="black" oncontextmenu="return false;">
 <div id="overlay">
-  <button class="play" id="start" onmouseover="onMouseOverCircle('start')" onmouseout="onMouseOutCircle('circle1')" disabled>
+  <button class="play" id="start" disabled>
     <h1>MUSIC START<br></h1>
     <div id="artist">
       <strong>*artist*</strong><br>
@@ -24,7 +24,7 @@
   </button>
 </div>
 <!-- ペンライト -->
-<div id="stkr">
+<div id="stkr" onclick="changeColor();">
   <div id="stkrframe">
   <div id="light"></div>
   <div id="cross"></div>

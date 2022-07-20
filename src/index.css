@@ -32,6 +32,13 @@ h1{
   background-color: rgb(31, 124, 60);
   border-style: none;
 }
+#changecolor{
+background-color: aqua;
+ position: absolute;
+ height: 100%;
+ width: 100%; 
+ z-index: 80;
+}
 
 #image{
   width: 30%; height: auto; right: 35%; bottom: 35%; 
@@ -69,7 +76,7 @@ h1{
   }
 /* マウスストーカー*/
 #stkr{
-  position: fixed; top: 70%; left:50%; width: 40px; height: 740px;
+  position: fixed; top: 70%; left:50%; width: 40px; height: 600px;
   transition: 0s;
   transition-timing-function: ease-out;
   z-index: 80;
@@ -83,12 +90,12 @@ h1{
 /*ペンライト用アニメーション*/
 @keyframes rotation{
   0%{ transform:rotate(10deg); }
-  50%{ transform:rotate(40deg); }
+  50%{ transform:rotate(35deg); }
   100%{ transform:rotate(10deg); }
 }
 #light{
   z-index: 3;
-  position: absolute;top: 0px; left: 5px; width: 30px; height: 150px;
+  position: absolute;top: 0px; left: 5px; width: 30px; height: 150px; margin-left: -45px;
   background-color: rgb(70, 255, 130);
   border-radius: 10px;
   border-style: solid;
@@ -97,13 +104,13 @@ h1{
 }
 #cross{
   z-index: 2;
-  position: absolute; top:140px; left:1px; width: 38px; height: 25px;
+  position: absolute; top:140px; left:1px; width: 38px; height: 25px; margin-left: -45px;
   background-color: azure;
   border-radius: 10px;
 }
 #grip {
   z-index: 1;
-  position: absolute; top: 155px; left: 6px; width: 28px; height: 60px;
+  position: absolute; top: 155px; left: 6px; width: 28px; height: 60px; margin-left: -45px;
   background-color: azure;
   border-radius: 10px;
 }
@@ -162,7 +169,7 @@ h1{
   position: absolute; bottom: 0%; right: 0%; height: 60px; width: 320px;
   background-color: darkgray;
   font-size:10px;
-  z-index: 200;
+  z-index: 90;
 }
 #control {
   padding: 2px;
