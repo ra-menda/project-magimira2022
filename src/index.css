@@ -169,9 +169,14 @@ h1{
   z-index: 90;
 }
 #control {
-  padding: 2px;
+  text-align: center;
+  padding-left: 12px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: auto;
 }
 #meta {
+  text-align: center;
   padding: 2px;
 }
 .miniLight{
