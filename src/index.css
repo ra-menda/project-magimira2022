@@ -77,8 +77,9 @@ h1{
 }
 #stkrframe{
   position: absolute;
-  animation:3s ease-in-out infinite rotation;
+  animation: ease-in-out infinite rotation;
   height: 100%; width: 100%;
+  animation-duration: 0s;
 }
 /*ペンライト用アニメーション*/
 @keyframes rotation{

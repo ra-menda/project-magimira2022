@@ -29,6 +29,7 @@ const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#cssLiricsLeft");
 const phraseEl2 = document.querySelector("#cssLiricsRight");
 const displayChangeColor = document.querySelector('#stkr'); //画面クリックでも色変更できるように
+const lightBeat = document.querySelector('#minilightframe'); 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 
@@ -141,6 +142,12 @@ function onTimeUpdate(position) {
   if (Math.abs(bpm - before_bpm) > 16) {
     document.getElementById('image').style.animationDuration = (duration * adjustment).toString() + "ms";
     document.getElementById('speaker').style.animationDuration = (duration * adjustment).toString() + "ms";
+    document.getElementById('stkrframe').style.animationDuration = (duration * adjustment / 2 ).toString() + "ms";
+    const lightBeat = document.getElementsByClassName('miniLightframe');
+    for (let i = 0; i < lightBeat.length; i++) {
+    lightBeat[i].style.animationDuration = (duration * adjustment / 2).toString() + "ms";
+  }
+    //document.getElementById('miniLightframe').style.animationDuration = (duration * adjustment).toString() + "ms";
   }
   before_bpm = bpm;
 }
