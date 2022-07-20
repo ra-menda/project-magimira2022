@@ -29,7 +29,6 @@ const artistSpan = document.querySelector("#artist span");
 const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#cssLiricsLeft");
 const phraseEl2 = document.querySelector("#cssLiricsRight");
-const changecolor = document.querySelector('#change_color');
 const displayChangeColor = document.querySelector('#stkr'); //画面クリックでも色変更できるように
 
 
@@ -107,11 +106,6 @@ function onAppReady(app) {
     reloadBtn.addEventListener(
         "click",
         changeMedia
-    );
-    // 色変更ボタン
-    changecolor.addEventListener(
-        "click",
-        changeColor
     );
     // 色変更ボタン
     displayChangeColor.addEventListener(

@@ -159,9 +159,13 @@ h1{
   color: azure; z-index: 90;
 }
 #Config{
-  position: absolute; bottom: 0%; right: 0%; height: 60px; width: 320px;
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+  height: 60px;
+  width: 280px;
   background-color: darkgray;
-  font-size:10px;
+  font-size: 10px;
   z-index: 90;
 }
 #control {
