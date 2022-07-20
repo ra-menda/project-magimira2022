@@ -163,21 +163,29 @@ h1{
   bottom: 0%;
   right: 0%;
   height: 60px;
-  width: 280px;
+  width: 265px;
   background-color: darkgray;
   font-size: 10px;
   z-index: 90;
 }
 #control {
   text-align: center;
-  padding-left: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
   width: auto;
 }
+#control > button{
+  width: 30%;
+}
 #meta {
   text-align: center;
   padding: 2px;
+  width: auto;
+}
+#meta > button{
+width: 20%;
 }
 .miniLight{
   position: absolute; top: 0%; left:0%; width: 3.5vh; height: 13vh;
