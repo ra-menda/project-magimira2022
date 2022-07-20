@@ -30,6 +30,7 @@ const songSpan = document.querySelector("#song span");
 const phraseEl = document.querySelector("#cssLiricsLeft");
 const phraseEl2 = document.querySelector("#cssLiricsRight");
 const changecolor = document.querySelector('#change_color');
+const displayChangeColor = document.querySelector('#stkr'); //画面クリックでも色変更できるように
 
 
 // スクロール禁止（実装中）
@@ -109,6 +110,11 @@ function onAppReady(app) {
     );
     // 色変更ボタン
     changecolor.addEventListener(
+        "click",
+        changeColor
+    );
+    // 色変更ボタン
+    displayChangeColor.addEventListener(
         "click",
         changeColor
     )
@@ -202,7 +208,6 @@ function changeMedia() {
 
 // 色変更
 function changeColor() {
-  alert("hello world");
   let miniLightColor;
   // 'miniLight'Classの配列が格納される
   const miniLightColorElements = document.getElementsByClassName('miniLight');
