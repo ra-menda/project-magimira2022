@@ -129,7 +129,9 @@ function onVideoReady(v) {
     p.animate = animatePhrase;
     p = p.next;
   }
-
+  // 最後のフレーズの取得のためにもう一回回す
+  p.animate = animatePhrase;
+  p = p.next;
   // 曲変更後に大きい再生ボタンを再表示する。
   document.querySelector("#overlay").style.visibility = "visible";
 }
