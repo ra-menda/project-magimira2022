@@ -1,6 +1,11 @@
 # あなたと繋いだ光
 
-![image](https://user-images.githubusercontent.com/16377686/179467303-f18077b4-d6b9-4d6d-a2b1-38ce11016923.png)
+![image](https://user-images.githubusercontent.com/16377686/180229215-cdf9db95-97be-4074-a1b7-c2dedf1ae41f.png)
+![image](https://user-images.githubusercontent.com/16377686/180235304-9b3d9f24-f32d-4a06-b000-c352a1b1542c.png)
+
+
+
+
 
 ### 作品への思い
 
